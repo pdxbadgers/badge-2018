@@ -6,19 +6,19 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "BSidesPDX 2018 Badge"
-Date ""
+Date "2018-09-09"
 Rev "1.0"
-Comp ""
-Comment1 ""
-Comment2 ""
+Comp "https://github.com/pdxbadgers/badge-2018"
+Comment1 "Firmware, BOM, Schematic"
+Comment2 "@office_deskjet"
 Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L BSidesPDX_2018:Badgelife_shitty_connector X?
+L BSidesPDX_2018:Badgelife_shitty_connector X1
 U 1 1 5B8DDFA4
 P 1380 5940
-F 0 "X?" H 1480 6377 60  0000 C CNN
+F 0 "X1" H 1480 6377 60  0000 C CNN
 F 1 "Badgelife_shitty_connector" H 1470 6300 60  0000 C CNN
 F 2 "" H 1380 5940 60  0001 C CNN
 F 3 "" H 1380 5940 60  0001 C CNN
@@ -37,10 +37,10 @@ F 3 "~" H 5595 3920 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:Battery_Cell BT?
+L Device:Battery_Cell BT1
 U 1 1 5B8DF1C7
 P 9300 1385
-F 0 "BT?" H 9418 1481 50  0000 L CNN
+F 0 "BT1" H 9418 1481 50  0000 L CNN
 F 1 "Battery_Cell" H 9418 1390 50  0000 L CNN
 F 2 "" V 9300 1445 50  0001 C CNN
 F 3 "~" V 9300 1445 50  0001 C CNN
@@ -96,10 +96,10 @@ SDA_MOSI
 Text Label 2020 6190 0    50   ~ 0
 SCL_SCK
 $Comp
-L BSidesPDX_2018:Badgelife_shitty_connector X?
+L BSidesPDX_2018:Badgelife_shitty_connector X2
 U 1 1 5B8E0671
 P 3000 5940
-F 0 "X?" H 3100 6377 60  0000 C CNN
+F 0 "X2" H 3100 6377 60  0000 C CNN
 F 1 "Badgelife_shitty_connector" H 3090 6300 60  0000 C CNN
 F 2 "" H 3000 5940 60  0001 C CNN
 F 3 "" H 3000 5940 60  0001 C CNN
@@ -140,10 +140,10 @@ SDA_MOSI
 Text Label 3640 6190 0    50   ~ 0
 SCL_SCK
 $Comp
-L BSidesPDX_2018:Badgelife_shitty_connector X?
+L BSidesPDX_2018:Badgelife_shitty_connector X3
 U 1 1 5B8E1021
 P 4635 5940
-F 0 "X?" H 4735 6377 60  0000 C CNN
+F 0 "X3" H 4735 6377 60  0000 C CNN
 F 1 "Badgelife_shitty_connector" H 4725 6300 60  0000 C CNN
 F 2 "" H 4635 5940 60  0001 C CNN
 F 3 "" H 4635 5940 60  0001 C CNN
@@ -184,10 +184,10 @@ SDA_MOSI
 Text Label 5275 6190 0    50   ~ 0
 SCL_SCK
 $Comp
-L BSidesPDX_2018:Badgelife_shitty_connector X?
+L BSidesPDX_2018:Badgelife_shitty_connector X4
 U 1 1 5B8E1038
 P 6365 5940
-F 0 "X?" H 6465 6377 60  0000 C CNN
+F 0 "X4" H 6465 6377 60  0000 C CNN
 F 1 "Badgelife_shitty_connector" H 6455 6300 60  0000 C CNN
 F 2 "" H 6365 5940 60  0001 C CNN
 F 3 "" H 6365 5940 60  0001 C CNN
@@ -228,10 +228,10 @@ SDA_MOSI
 Text Label 7005 6190 0    50   ~ 0
 SCL_SCK
 $Comp
-L BSidesPDX_2018:Badgelife_shitty_connector X?
+L BSidesPDX_2018:Badgelife_shitty_connector X5
 U 1 1 5B8E1565
 P 8045 5940
-F 0 "X?" H 8145 6377 60  0000 C CNN
+F 0 "X5" H 8145 6377 60  0000 C CNN
 F 1 "Badgelife_shitty_connector" H 8135 6300 60  0000 C CNN
 F 2 "" H 8045 5940 60  0001 C CNN
 F 3 "" H 8045 5940 60  0001 C CNN
@@ -477,10 +477,10 @@ Wire Wire Line
 Text Label 7555 3470 3    50   ~ 0
 EN_RGB4
 $Comp
-L Device:C C?
+L Device:C C1
 U 1 1 5B951E24
 P 10090 1345
-F 0 "C?" H 10205 1391 50  0000 L CNN
+F 0 "C1" H 10205 1391 50  0000 L CNN
 F 1 "10u" H 10205 1300 50  0000 L CNN
 F 2 "" H 10128 1195 50  0001 C CNN
 F 3 "~" H 10090 1345 50  0001 C CNN
@@ -488,10 +488,10 @@ F 3 "~" H 10090 1345 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:C C?
+L Device:C C2
 U 1 1 5B951F0C
 P 10665 1345
-F 0 "C?" H 10780 1391 50  0000 L CNN
+F 0 "C2" H 10780 1391 50  0000 L CNN
 F 1 "0.1u" H 10780 1300 50  0000 L CNN
 F 2 "" H 10703 1195 50  0001 C CNN
 F 3 "~" H 10665 1345 50  0001 C CNN
@@ -527,10 +527,10 @@ Wire Wire Line
 Wire Wire Line
 	7555 4070 7555 4165
 $Comp
-L MCU_Microchip_ATtiny:ATtiny861A-SU U?
+L MCU_Microchip_ATtiny:ATtiny861A-SU U1
 U 1 1 5B90B463
 P 2060 2915
-F 0 "U?" H 1430 2961 50  0000 R CNN
+F 0 "U1" H 1430 2961 50  0000 R CNN
 F 1 "ATTINY861-15XD " H 1430 2870 50  0000 R CNN
 F 2 "Package_SO:SOIC-20W_7.5x12.8mm_P1.27mm" H 2060 2915 50  0001 C CIN
 F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/doc8197.pdf" H 2060 2915 50  0001 C CNN
@@ -544,10 +544,10 @@ Wire Wire Line
 Wire Wire Line
 	6885 4070 6885 4165
 $Comp
-L power:GND #PWR?
+L power:GND #PWR01
 U 1 1 5BA1C59D
 P 10090 1585
-F 0 "#PWR?" H 10090 1335 50  0001 C CNN
+F 0 "#PWR01" H 10090 1335 50  0001 C CNN
 F 1 "GND" H 10095 1412 50  0000 C CNN
 F 2 "" H 10090 1585 50  0001 C CNN
 F 3 "" H 10090 1585 50  0001 C CNN
@@ -557,10 +557,10 @@ $EndComp
 Wire Wire Line
 	10090 1495 10090 1585
 $Comp
-L power:GND #PWR?
+L power:GND #PWR02
 U 1 1 5BA1FECE
 P 10665 1585
-F 0 "#PWR?" H 10665 1335 50  0001 C CNN
+F 0 "#PWR02" H 10665 1335 50  0001 C CNN
 F 1 "GND" H 10670 1412 50  0000 C CNN
 F 2 "" H 10665 1585 50  0001 C CNN
 F 3 "" H 10665 1585 50  0001 C CNN
@@ -583,10 +583,10 @@ Wire Wire Line
 Text Label 2110 1500 0    50   ~ 0
 3V0
 $Comp
-L Connector:AVR-ISP-6 J?
+L Connector:AVR-ISP-6 J1
 U 1 1 5BA3951F
 P 9905 2925
-F 0 "J?" H 9625 3021 50  0000 R CNN
+F 0 "J1" H 9625 3021 50  0000 R CNN
 F 1 "AVR-ISP-6" H 9625 2930 50  0000 R CNN
 F 2 "" V 9655 2975 50  0001 C CNN
 F 3 " ~" H 8630 2375 50  0001 C CNN
@@ -659,10 +659,10 @@ Wire Wire Line
 Text Label 9805 2275 0    50   ~ 0
 3V0
 $Comp
-L power:GND #PWR?
+L power:GND #PWR03
 U 1 1 5BA88B3D
 P 9805 3415
-F 0 "#PWR?" H 9805 3165 50  0001 C CNN
+F 0 "#PWR03" H 9805 3165 50  0001 C CNN
 F 1 "GND" H 9810 3242 50  0000 C CNN
 F 2 "" H 9805 3415 50  0001 C CNN
 F 3 "" H 9805 3415 50  0001 C CNN
@@ -748,10 +748,10 @@ ROW3
 Text Label 7600 2930 2    50   ~ 0
 ROW4
 $Comp
-L Device:LED D?
+L Device:LED D7
 U 1 1 5BB892DC
 P 5265 2130
-F 0 "D?" H 5256 2346 50  0000 C CNN
+F 0 "D7" H 5256 2346 50  0000 C CNN
 F 1 "LED" H 5256 2255 50  0000 C CNN
 F 2 "" H 5265 2130 50  0001 C CNN
 F 3 "~" H 5265 2130 50  0001 C CNN
@@ -759,10 +759,10 @@ F 3 "~" H 5265 2130 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L Device:LED D?
+L Device:LED D9
 U 1 1 5BB892E2
 P 5265 2530
-F 0 "D?" H 5256 2746 50  0000 C CNN
+F 0 "D9" H 5256 2746 50  0000 C CNN
 F 1 "LED" H 5256 2655 50  0000 C CNN
 F 2 "" H 5265 2530 50  0001 C CNN
 F 3 "~" H 5265 2530 50  0001 C CNN
@@ -770,10 +770,10 @@ F 3 "~" H 5265 2530 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L Device:LED D?
+L Device:LED D11
 U 1 1 5BB892E8
 P 5265 2930
-F 0 "D?" H 5256 3146 50  0000 C CNN
+F 0 "D11" H 5256 3146 50  0000 C CNN
 F 1 "LED" H 5256 3055 50  0000 C CNN
 F 2 "" H 5265 2930 50  0001 C CNN
 F 3 "~" H 5265 2930 50  0001 C CNN
@@ -806,10 +806,10 @@ Wire Wire Line
 	4985 2930 5115 2930
 Connection ~ 4985 2530
 $Comp
-L Device:LED D?
+L Device:LED D8
 U 1 1 5BB892FC
 P 6165 2130
-F 0 "D?" H 6156 2346 50  0000 C CNN
+F 0 "D8" H 6156 2346 50  0000 C CNN
 F 1 "LED" H 6156 2255 50  0000 C CNN
 F 2 "" H 6165 2130 50  0001 C CNN
 F 3 "~" H 6165 2130 50  0001 C CNN
@@ -817,10 +817,10 @@ F 3 "~" H 6165 2130 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L Device:LED D?
+L Device:LED D10
 U 1 1 5BB89302
 P 6165 2530
-F 0 "D?" H 6156 2746 50  0000 C CNN
+F 0 "D10" H 6156 2746 50  0000 C CNN
 F 1 "LED" H 6156 2655 50  0000 C CNN
 F 2 "" H 6165 2530 50  0001 C CNN
 F 3 "~" H 6165 2530 50  0001 C CNN
@@ -828,10 +828,10 @@ F 3 "~" H 6165 2530 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L Device:LED D?
+L Device:LED D12
 U 1 1 5BB89308
 P 6165 2930
-F 0 "D?" H 6156 3146 50  0000 C CNN
+F 0 "D12" H 6156 3146 50  0000 C CNN
 F 1 "LED" H 6156 3055 50  0000 C CNN
 F 2 "" H 6165 2930 50  0001 C CNN
 F 3 "~" H 6165 2930 50  0001 C CNN
@@ -900,10 +900,10 @@ Wire Wire Line
 Wire Wire Line
 	5885 1870 5885 2130
 $Comp
-L Device:R R?
+L Device:R R2
 U 1 1 5BBC9A88
 P 6820 1720
-F 0 "R?" H 6890 1766 50  0000 L CNN
+F 0 "R2" H 6890 1766 50  0000 L CNN
 F 1 "100R" H 6890 1675 50  0000 L CNN
 F 2 "" V 6750 1720 50  0001 C CNN
 F 3 "~" H 6820 1720 50  0001 C CNN
@@ -919,10 +919,10 @@ ROW_2
 Wire Wire Line
 	6820 1385 6820 1570
 $Comp
-L Device:R R?
+L Device:R R1
 U 1 1 5BBC9A92
 P 7720 1720
-F 0 "R?" H 7790 1766 50  0000 L CNN
+F 0 "R1" H 7790 1766 50  0000 L CNN
 F 1 "100R" H 7790 1675 50  0000 L CNN
 F 2 "" V 7650 1720 50  0001 C CNN
 F 3 "~" H 7720 1720 50  0001 C CNN
@@ -947,4 +947,59 @@ Text Label 3315 2315 2    50   ~ 0
 ROW3
 Text Label 3315 2415 2    50   ~ 0
 ROW4
+$Comp
+L Graphic:Logo_Open_Hardware_Small #LOGO?
+U 1 1 5BBD132A
+P 10895 6865
+F 0 "#LOGO?" H 10895 7140 50  0001 C CNN
+F 1 "Logo_Open_Hardware_Small" H 10895 6640 50  0001 C CNN
+F 2 "" H 10895 6865 50  0001 C CNN
+F 3 "~" H 10895 6865 50  0001 C CNN
+	1    10895 6865
+	1    0    0    -1  
+$EndComp
+$Comp
+L dk_Tactile-Switches:PTS645SM43SMTR92_LFS S?
+U 1 1 5BBD3F71
+P 9150 4245
+F 0 "S?" H 9150 4592 60  0000 C CNN
+F 1 "PTS645SM43SMTR92_LFS" H 9150 4486 60  0000 C CNN
+F 2 "digikey-footprints:Switch_Tactile_SMD_6x6mm_PTS645" H 9350 4445 60  0001 L CNN
+F 3 "https://www.ckswitches.com/media/1471/pts645.pdf" H 9350 4545 60  0001 L CNN
+F 4 "CKN9112CT-ND" H 9350 4645 60  0001 L CNN "Digi-Key_PN"
+F 5 "PTS645SM43SMTR92 LFS" H 9350 4745 60  0001 L CNN "MPN"
+F 6 "Switches" H 9350 4845 60  0001 L CNN "Category"
+F 7 "Tactile Switches" H 9350 4945 60  0001 L CNN "Family"
+F 8 "https://www.ckswitches.com/media/1471/pts645.pdf" H 9350 5045 60  0001 L CNN "DK_Datasheet_Link"
+F 9 "/product-detail/en/c-k/PTS645SM43SMTR92-LFS/CKN9112CT-ND/1146934" H 9350 5145 60  0001 L CNN "DK_Detail_Page"
+F 10 "SWITCH TACTILE SPST-NO 0.05A 12V" H 9350 5245 60  0001 L CNN "Description"
+F 11 "C&K" H 9350 5345 60  0001 L CNN "Manufacturer"
+F 12 "Active" H 9350 5445 60  0001 L CNN "Status"
+	1    9150 4245
+	1    0    0    -1  
+$EndComp
+$Comp
+L dk_Tactile-Switches:PTS645SM43SMTR92_LFS S?
+U 1 1 5BBD4238
+P 10240 4145
+F 0 "S?" H 10240 4492 60  0000 C CNN
+F 1 "PTS645SM43SMTR92_LFS" H 10240 4386 60  0000 C CNN
+F 2 "digikey-footprints:Switch_Tactile_SMD_6x6mm_PTS645" H 10440 4345 60  0001 L CNN
+F 3 "https://www.ckswitches.com/media/1471/pts645.pdf" H 10440 4445 60  0001 L CNN
+F 4 "CKN9112CT-ND" H 10440 4545 60  0001 L CNN "Digi-Key_PN"
+F 5 "PTS645SM43SMTR92 LFS" H 10440 4645 60  0001 L CNN "MPN"
+F 6 "Switches" H 10440 4745 60  0001 L CNN "Category"
+F 7 "Tactile Switches" H 10440 4845 60  0001 L CNN "Family"
+F 8 "https://www.ckswitches.com/media/1471/pts645.pdf" H 10440 4945 60  0001 L CNN "DK_Datasheet_Link"
+F 9 "/product-detail/en/c-k/PTS645SM43SMTR92-LFS/CKN9112CT-ND/1146934" H 10440 5045 60  0001 L CNN "DK_Detail_Page"
+F 10 "SWITCH TACTILE SPST-NO 0.05A 12V" H 10440 5145 60  0001 L CNN "Description"
+F 11 "C&K" H 10440 5245 60  0001 L CNN "Manufacturer"
+F 12 "Active" H 10440 5345 60  0001 L CNN "Status"
+	1    10240 4145
+	1    0    0    -1  
+$EndComp
+Text Label 3315 3415 2    50   ~ 0
+L_SWITCH
+Text Label 3315 3615 2    50   ~ 0
+R_SWITCH
 $EndSCHEMATC
