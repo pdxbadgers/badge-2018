@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name BSidesPDX_2018)(type KiCad)(uri ${KIPRJMOD}/BSidesPDX_2018.pretty)(options "")(descr ""))
+)

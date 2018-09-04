@@ -1,0 +1,2 @@
+#baded firmware  
+code here!

@@ -1,0 +1,11 @@
+Description,Designator,Value,qty/board,manuf part #,supplier part#,supplier link,comments
+RGB LED,,RGB_LED,4,XZMDKCBDDG45S-9 ,1497-1257-2-ND,https://www.digikey.com/product-detail/en/sunled/XZMDKCBDDG45S-9/1497-1257-2-ND/4902045,
+YLW LED,,,,,,,
+resistor,,,,,,,
+bypass cap,,,,,,,
+battery holder,,,,,,,
+MCU,,,,,,,
+decoder,,,,,,,
+2x2 F header,,,,,,,
+lanyard,,,,,,,
+battery,,,,,,,
