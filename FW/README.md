@@ -1,2 +1,3 @@
-#baded firmware  
-code here!
+# badge firmware
+
+https://github.com/SpenceKonde/ATTinyCore
