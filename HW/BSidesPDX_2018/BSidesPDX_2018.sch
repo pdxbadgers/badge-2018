@@ -107,11 +107,6 @@ F 3 "" H 9300 1575 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	9300 1575 9300 1485
-Connection ~ 9300 1485
-Wire Wire Line
-	9300 1485 9300 1475
-Wire Wire Line
 	980  6030 920  6030
 Wire Wire Line
 	920  6030 920  6180
@@ -320,11 +315,6 @@ Text Label 8680 5720 0    50   ~ 0
 SDA
 Text Label 8680 6220 0    50   ~ 0
 SCL
-Wire Wire Line
-	5595 4165 5595 4070
-Wire Wire Line
-	5595 4170 5595 4165
-Connection ~ 5595 4165
 $Comp
 L BSidesPDX_2018:RGB_LED D?
 U 1 1 5B8B9026
@@ -336,17 +326,6 @@ F 3 "" H 5670 4265 50  0001 C CNN
 	1    5595 4490
 	0    1    1    0   
 $EndComp
-Wire Wire Line
-	5595 4810 5595 4815
-Connection ~ 5595 4815
-Wire Wire Line
-	5695 4810 5695 4815
-Connection ~ 5695 4815
-Wire Wire Line
-	5495 4810 5495 4815
-Connection ~ 5495 4815
-Wire Wire Line
-	5495 4815 5495 4950
 $Comp
 L Device:R R?
 U 1 1 5B8EB873
@@ -358,11 +337,6 @@ F 3 "~" H 6265 3920 50  0001 C CNN
 	1    6265 3920
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	6265 4165 6265 4070
-Wire Wire Line
-	6265 4170 6265 4165
-Connection ~ 6265 4165
 $Comp
 L BSidesPDX_2018:RGB_LED D?
 U 1 1 5B8EB87C
@@ -374,31 +348,6 @@ F 3 "" H 6340 4265 50  0001 C CNN
 	1    6265 4490
 	0    1    1    0   
 $EndComp
-Wire Wire Line
-	6265 4810 6265 4815
-Connection ~ 6265 4815
-Wire Wire Line
-	6365 4810 6365 4815
-Connection ~ 6365 4815
-Wire Wire Line
-	6165 4810 6165 4815
-Connection ~ 6165 4815
-Wire Wire Line
-	6165 4815 6165 4950
-Wire Wire Line
-	5495 4950 6165 4950
-Wire Wire Line
-	5595 5080 6265 5080
-Wire Wire Line
-	5595 4815 5595 5080
-Wire Wire Line
-	6265 4815 6265 5080
-Wire Wire Line
-	5695 5180 6365 5180
-Wire Wire Line
-	5695 4815 5695 5180
-Wire Wire Line
-	6365 4815 6365 5180
 $Comp
 L Device:R R?
 U 1 1 5B8F20F4
@@ -410,11 +359,6 @@ F 3 "~" H 6885 3920 50  0001 C CNN
 	1    6885 3920
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	6885 4165 6885 4070
-Wire Wire Line
-	6885 4170 6885 4165
-Connection ~ 6885 4165
 $Comp
 L BSidesPDX_2018:RGB_LED D?
 U 1 1 5B8F20FD
@@ -426,17 +370,6 @@ F 3 "" H 6960 4265 50  0001 C CNN
 	1    6885 4490
 	0    1    1    0   
 $EndComp
-Wire Wire Line
-	6885 4810 6885 4815
-Connection ~ 6885 4815
-Wire Wire Line
-	6985 4810 6985 4815
-Connection ~ 6985 4815
-Wire Wire Line
-	6785 4810 6785 4815
-Connection ~ 6785 4815
-Wire Wire Line
-	6785 4815 6785 4950
 $Comp
 L Device:R R?
 U 1 1 5B8F210A
@@ -448,11 +381,6 @@ F 3 "~" H 7555 3920 50  0001 C CNN
 	1    7555 3920
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	7555 4165 7555 4070
-Wire Wire Line
-	7555 4170 7555 4165
-Connection ~ 7555 4165
 $Comp
 L BSidesPDX_2018:RGB_LED D?
 U 1 1 5B8F2113
@@ -464,52 +392,6 @@ F 3 "" H 7630 4265 50  0001 C CNN
 	1    7555 4490
 	0    1    1    0   
 $EndComp
-Wire Wire Line
-	7555 4810 7555 4815
-Connection ~ 7555 4815
-Wire Wire Line
-	7655 4810 7655 4815
-Connection ~ 7655 4815
-Wire Wire Line
-	7455 4810 7455 4815
-Connection ~ 7455 4815
-Wire Wire Line
-	7455 4815 7455 4950
-Wire Wire Line
-	6885 4815 6885 5080
-Wire Wire Line
-	7555 4815 7555 5080
-Wire Wire Line
-	6985 4815 6985 5180
-Wire Wire Line
-	6165 4950 6785 4950
-Connection ~ 6165 4950
-Connection ~ 6785 4950
-Wire Wire Line
-	6785 4950 7455 4950
-Wire Wire Line
-	6265 5080 6885 5080
-Connection ~ 6265 5080
-Connection ~ 6885 5080
-Wire Wire Line
-	6885 5080 7555 5080
-Wire Wire Line
-	6365 5180 6985 5180
-Wire Wire Line
-	7655 4815 7655 5180
-Connection ~ 6365 5180
-Connection ~ 6985 5180
-Wire Wire Line
-	6985 5180 7655 5180
-Wire Wire Line
-	5495 4950 5125 4950
-Connection ~ 5495 4950
-Wire Wire Line
-	5595 5080 5125 5080
-Connection ~ 5595 5080
-Wire Wire Line
-	5695 5180 5125 5180
-Connection ~ 5695 5180
 Text Label 5125 4950 2    50   ~ 0
 B_PWM
 Text Label 5125 5080 2    50   ~ 0
@@ -736,39 +618,18 @@ Wire Wire Line
 	8130 2535 8370 2535
 Wire Wire Line
 	8130 2935 8370 2935
-$Comp
-L MCU_Microchip_ATtiny:ATtiny861A-SU U?
-U 1 1 5B90B463
-P 2060 2915
-F 0 "U?" H 1430 2961 50  0000 R CNN
-F 1 "ATTINY861-15XD " H 1430 2870 50  0000 R CNN
-F 2 "Package_SO:SOIC-20W_7.5x12.8mm_P1.27mm" H 2060 2915 50  0001 C CIN
-F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/doc8197.pdf" H 2060 2915 50  0001 C CNN
-	1    2060 2915
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	2060 4010 2060 4015
 Wire Wire Line
 	2060 4230 2110 4230
-Wire Wire Line
-	2160 4230 2160 4015
-Connection ~ 2060 4015
-Wire Wire Line
-	2060 4015 2060 4230
-Connection ~ 2160 4015
-Wire Wire Line
-	2160 4015 2160 4010
 Wire Wire Line
 	2110 4230 2110 4330
 Connection ~ 2110 4230
 Wire Wire Line
 	2110 4230 2160 4230
 $Comp
-L power:GND #PWR?
+L power:GND #PWR0107
 U 1 1 5B92EDF1
 P 2110 4330
-F 0 "#PWR?" H 2110 4080 50  0001 C CNN
+F 0 "#PWR0107" H 2110 4080 50  0001 C CNN
 F 1 "GND" H 2115 4157 50  0000 C CNN
 F 2 "" H 2110 4330 50  0001 C CNN
 F 3 "" H 2110 4330 50  0001 C CNN
@@ -791,4 +652,116 @@ Wire Wire Line
 	7555 3770 7555 3470
 Text Label 7555 3470 3    50   ~ 0
 EN_RGB4
+$Comp
+L Device:C C?
+U 1 1 5B951E24
+P 10090 1345
+F 0 "C?" H 10205 1391 50  0000 L CNN
+F 1 "C" H 10205 1300 50  0000 L CNN
+F 2 "" H 10128 1195 50  0001 C CNN
+F 3 "~" H 10090 1345 50  0001 C CNN
+	1    10090 1345
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5B951F0C
+P 10665 1345
+F 0 "C?" H 10780 1391 50  0000 L CNN
+F 1 "C" H 10780 1300 50  0000 L CNN
+F 2 "" H 10703 1195 50  0001 C CNN
+F 3 "~" H 10665 1345 50  0001 C CNN
+	1    10665 1345
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	10090 1195 10090 1045
+Text Label 10090 1045 0    50   ~ 0
+3V0
+Wire Wire Line
+	10665 1195 10665 1045
+Text Label 10665 1045 0    50   ~ 0
+3V0
+Wire Wire Line
+	9300 1485 9300 1575
+Wire Wire Line
+	5125 4950 5495 4950
+Wire Wire Line
+	5495 4815 5495 4950
+Connection ~ 5495 4950
+Wire Wire Line
+	5125 5080 5595 5080
+Wire Wire Line
+	5595 4815 5595 5080
+Connection ~ 5595 5080
+Wire Wire Line
+	5125 5180 5695 5180
+Wire Wire Line
+	5695 4815 5695 5180
+Connection ~ 5695 5180
+Wire Wire Line
+	6165 4815 6165 4950
+Wire Wire Line
+	5495 4950 6165 4950
+Connection ~ 6165 4950
+Wire Wire Line
+	5595 5080 6265 5080
+Wire Wire Line
+	6265 4815 6265 5080
+Connection ~ 6265 5080
+Wire Wire Line
+	5695 5180 6365 5180
+Wire Wire Line
+	6365 4815 6365 5180
+Connection ~ 6365 5180
+Wire Wire Line
+	6165 4950 6785 4950
+Wire Wire Line
+	6265 5080 6885 5080
+Wire Wire Line
+	6365 5180 6985 5180
+Wire Wire Line
+	6785 4815 6785 4950
+Connection ~ 6785 4950
+Wire Wire Line
+	6785 4950 7455 4950
+Wire Wire Line
+	6885 4815 6885 5080
+Connection ~ 6885 5080
+Wire Wire Line
+	6885 5080 7555 5080
+Wire Wire Line
+	6985 4815 6985 5180
+Connection ~ 6985 5180
+Wire Wire Line
+	6985 5180 7655 5180
+Wire Wire Line
+	5595 4165 5595 4070
+Wire Wire Line
+	7455 4950 7455 4815
+Wire Wire Line
+	7555 5080 7555 4815
+Wire Wire Line
+	7655 4815 7655 5180
+Wire Wire Line
+	6265 4165 6265 4070
+Wire Wire Line
+	7555 4070 7555 4165
+$Comp
+L MCU_Microchip_ATtiny:ATtiny861A-SU U?
+U 1 1 5B90B463
+P 2060 2915
+F 0 "U?" H 1430 2961 50  0000 R CNN
+F 1 "ATTINY861-15XD " H 1430 2870 50  0000 R CNN
+F 2 "Package_SO:SOIC-20W_7.5x12.8mm_P1.27mm" H 2060 2915 50  0001 C CIN
+F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/doc8197.pdf" H 2060 2915 50  0001 C CNN
+	1    2060 2915
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2160 4230 2160 4015
+Wire Wire Line
+	2060 4015 2060 4230
+Wire Wire Line
+	6885 4070 6885 4165
 $EndSCHEMATC
