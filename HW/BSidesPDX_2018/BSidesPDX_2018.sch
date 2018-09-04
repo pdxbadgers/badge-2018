@@ -23,61 +23,323 @@ F 1 "RGB_LED" H 5850 3784 50  0000 C CNN
 F 2 "" H 5925 3325 50  0001 C CNN
 F 3 "" H 5925 3325 50  0001 C CNN
 	1    5850 3550
-	1    0    0    -1  
+	0    1    1    0   
 $EndComp
 $Comp
 L BSidesPDX_2018:Badgelife_shitty_connector X?
 U 1 1 5B8DDFA4
 P 2320 5270
 F 0 "X?" H 2420 5707 60  0000 C CNN
-F 1 "Badgelife_shitty_connector" H 2420 5601 60  0000 C CNN
+F 1 "Badgelife_shitty_connector" H 2410 5630 60  0000 C CNN
 F 2 "" H 2320 5270 60  0001 C CNN
 F 3 "" H 2320 5270 60  0001 C CNN
 	1    2320 5270
 	1    0    0    -1  
 $EndComp
 $Comp
-L BSidesPDX_2018:Badgelife_shitty_connector X?
-U 1 1 5B8DE078
-P 3810 5290
-F 0 "X?" H 3910 5727 60  0000 C CNN
-F 1 "Badgelife_shitty_connector" H 3910 5621 60  0000 C CNN
-F 2 "" H 3810 5290 60  0001 C CNN
-F 3 "" H 3810 5290 60  0001 C CNN
-	1    3810 5290
+L Device:LED D?
+U 1 1 5B8DEA33
+P 2680 2360
+F 0 "D?" H 2671 2576 50  0000 C CNN
+F 1 "LED" H 2671 2485 50  0000 C CNN
+F 2 "" H 2680 2360 50  0001 C CNN
+F 3 "~" H 2680 2360 50  0001 C CNN
+	1    2680 2360
 	1    0    0    -1  
 $EndComp
 $Comp
-L BSidesPDX_2018:Badgelife_shitty_connector X?
-U 1 1 5B8DE096
-P 5200 5280
-F 0 "X?" H 5300 5717 60  0000 C CNN
-F 1 "Badgelife_shitty_connector" H 5300 5611 60  0000 C CNN
-F 2 "" H 5200 5280 60  0001 C CNN
-F 3 "" H 5200 5280 60  0001 C CNN
-	1    5200 5280
+L Device:LED D?
+U 1 1 5B8DEAB5
+P 2650 2720
+F 0 "D?" H 2641 2936 50  0000 C CNN
+F 1 "LED" H 2641 2845 50  0000 C CNN
+F 2 "" H 2650 2720 50  0001 C CNN
+F 3 "~" H 2650 2720 50  0001 C CNN
+	1    2650 2720
 	1    0    0    -1  
 $EndComp
 $Comp
-L BSidesPDX_2018:Badgelife_shitty_connector X?
-U 1 1 5B8DE12E
-P 6640 5260
-F 0 "X?" H 6740 5697 60  0000 C CNN
-F 1 "Badgelife_shitty_connector" H 6740 5591 60  0000 C CNN
-F 2 "" H 6640 5260 60  0001 C CNN
-F 3 "" H 6640 5260 60  0001 C CNN
-	1    6640 5260
+L Device:LED D?
+U 1 1 5B8DEAF5
+P 2640 3150
+F 0 "D?" H 2631 3366 50  0000 C CNN
+F 1 "LED" H 2631 3275 50  0000 C CNN
+F 2 "" H 2640 3150 50  0001 C CNN
+F 3 "~" H 2640 3150 50  0001 C CNN
+	1    2640 3150
 	1    0    0    -1  
 $EndComp
 $Comp
-L BSidesPDX_2018:Badgelife_shitty_connector X?
-U 1 1 5B8DE176
-P 7980 5240
-F 0 "X?" H 8080 5677 60  0000 C CNN
-F 1 "Badgelife_shitty_connector" H 8080 5571 60  0000 C CNN
-F 2 "" H 7980 5240 60  0001 C CNN
-F 3 "" H 7980 5240 60  0001 C CNN
-	1    7980 5240
+L Device:LED D?
+U 1 1 5B8DEB55
+P 2640 3410
+F 0 "D?" H 2631 3626 50  0000 C CNN
+F 1 "LED" H 2631 3535 50  0000 C CNN
+F 2 "" H 2640 3410 50  0001 C CNN
+F 3 "~" H 2640 3410 50  0001 C CNN
+	1    2640 3410
 	1    0    0    -1  
 $EndComp
+$Comp
+L Device:R R?
+U 1 1 5B8DEDCF
+P 5840 2950
+F 0 "R?" H 5910 2996 50  0000 L CNN
+F 1 "R" H 5910 2905 50  0000 L CNN
+F 2 "" V 5770 2950 50  0001 C CNN
+F 3 "~" H 5840 2950 50  0001 C CNN
+	1    5840 2950
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5B8DF087
+P 2400 2020
+F 0 "R?" H 2470 2066 50  0000 L CNN
+F 1 "R" H 2470 1975 50  0000 L CNN
+F 2 "" V 2330 2020 50  0001 C CNN
+F 3 "~" H 2400 2020 50  0001 C CNN
+	1    2400 2020
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:Battery_Cell BT?
+U 1 1 5B8DF1C7
+P 1010 3200
+F 0 "BT?" H 1128 3296 50  0000 L CNN
+F 1 "Battery_Cell" H 1128 3205 50  0000 L CNN
+F 2 "" V 1010 3260 50  0001 C CNN
+F 3 "~" V 1010 3260 50  0001 C CNN
+	1    1010 3200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1010 3000 1010 2850
+Text Label 1010 2850 0    50   ~ 0
+3V0
+$Comp
+L power:GND #PWR?
+U 1 1 5B8DF7A2
+P 1010 3390
+F 0 "#PWR?" H 1010 3140 50  0001 C CNN
+F 1 "GND" H 1015 3217 50  0000 C CNN
+F 2 "" H 1010 3390 50  0001 C CNN
+F 3 "" H 1010 3390 50  0001 C CNN
+	1    1010 3390
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1010 3390 1010 3300
+Connection ~ 1010 3300
+Wire Wire Line
+	1010 3300 1010 3290
+Wire Wire Line
+	1970 5370 1910 5370
+Wire Wire Line
+	1910 5370 1910 5520
+$Comp
+L power:GND #PWR?
+U 1 1 5B8DFBE4
+P 1910 5520
+F 0 "#PWR?" H 1910 5270 50  0001 C CNN
+F 1 "GND" H 1915 5347 50  0000 C CNN
+F 2 "" H 1910 5520 50  0001 C CNN
+F 3 "" H 1910 5520 50  0001 C CNN
+	1    1910 5520
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1970 5170 1910 5170
+Wire Wire Line
+	1910 5170 1910 5020
+Text Label 1910 5020 2    50   ~ 0
+3V0
+Wire Wire Line
+	2870 5170 2960 5170
+Wire Wire Line
+	2960 5170 2960 5020
+Wire Wire Line
+	2870 5370 2960 5370
+Wire Wire Line
+	2960 5370 2960 5520
+Text Label 2960 5020 0    50   ~ 0
+SDA
+Text Label 2960 5520 0    50   ~ 0
+SCL
+$Comp
+L BSidesPDX_2018:Badgelife_shitty_connector X?
+U 1 1 5B8E0671
+P 4140 5280
+F 0 "X?" H 4240 5717 60  0000 C CNN
+F 1 "Badgelife_shitty_connector" H 4230 5640 60  0000 C CNN
+F 2 "" H 4140 5280 60  0001 C CNN
+F 3 "" H 4140 5280 60  0001 C CNN
+	1    4140 5280
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3790 5380 3730 5380
+Wire Wire Line
+	3730 5380 3730 5530
+$Comp
+L power:GND #PWR?
+U 1 1 5B8E0679
+P 3730 5530
+F 0 "#PWR?" H 3730 5280 50  0001 C CNN
+F 1 "GND" H 3735 5357 50  0000 C CNN
+F 2 "" H 3730 5530 50  0001 C CNN
+F 3 "" H 3730 5530 50  0001 C CNN
+	1    3730 5530
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3790 5180 3730 5180
+Wire Wire Line
+	3730 5180 3730 5030
+Text Label 3730 5030 2    50   ~ 0
+3V0
+Wire Wire Line
+	4690 5180 4780 5180
+Wire Wire Line
+	4780 5180 4780 5030
+Wire Wire Line
+	4690 5380 4780 5380
+Wire Wire Line
+	4780 5380 4780 5530
+Text Label 4780 5030 0    50   ~ 0
+SDA
+Text Label 4780 5530 0    50   ~ 0
+SCL
+$Comp
+L BSidesPDX_2018:Badgelife_shitty_connector X?
+U 1 1 5B8E1021
+P 5640 5260
+F 0 "X?" H 5740 5697 60  0000 C CNN
+F 1 "Badgelife_shitty_connector" H 5730 5620 60  0000 C CNN
+F 2 "" H 5640 5260 60  0001 C CNN
+F 3 "" H 5640 5260 60  0001 C CNN
+	1    5640 5260
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5290 5360 5230 5360
+Wire Wire Line
+	5230 5360 5230 5510
+$Comp
+L power:GND #PWR?
+U 1 1 5B8E1029
+P 5230 5510
+F 0 "#PWR?" H 5230 5260 50  0001 C CNN
+F 1 "GND" H 5235 5337 50  0000 C CNN
+F 2 "" H 5230 5510 50  0001 C CNN
+F 3 "" H 5230 5510 50  0001 C CNN
+	1    5230 5510
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5290 5160 5230 5160
+Wire Wire Line
+	5230 5160 5230 5010
+Text Label 5230 5010 2    50   ~ 0
+3V0
+Wire Wire Line
+	6190 5160 6280 5160
+Wire Wire Line
+	6280 5160 6280 5010
+Wire Wire Line
+	6190 5360 6280 5360
+Wire Wire Line
+	6280 5360 6280 5510
+Text Label 6280 5010 0    50   ~ 0
+SDA
+Text Label 6280 5510 0    50   ~ 0
+SCL
+$Comp
+L BSidesPDX_2018:Badgelife_shitty_connector X?
+U 1 1 5B8E1038
+P 7460 5270
+F 0 "X?" H 7560 5707 60  0000 C CNN
+F 1 "Badgelife_shitty_connector" H 7550 5630 60  0000 C CNN
+F 2 "" H 7460 5270 60  0001 C CNN
+F 3 "" H 7460 5270 60  0001 C CNN
+	1    7460 5270
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7110 5370 7050 5370
+Wire Wire Line
+	7050 5370 7050 5520
+$Comp
+L power:GND #PWR?
+U 1 1 5B8E1040
+P 7050 5520
+F 0 "#PWR?" H 7050 5270 50  0001 C CNN
+F 1 "GND" H 7055 5347 50  0000 C CNN
+F 2 "" H 7050 5520 50  0001 C CNN
+F 3 "" H 7050 5520 50  0001 C CNN
+	1    7050 5520
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7110 5170 7050 5170
+Wire Wire Line
+	7050 5170 7050 5020
+Text Label 7050 5020 2    50   ~ 0
+3V0
+Wire Wire Line
+	8010 5170 8100 5170
+Wire Wire Line
+	8100 5170 8100 5020
+Wire Wire Line
+	8010 5370 8100 5370
+Wire Wire Line
+	8100 5370 8100 5520
+Text Label 8100 5020 0    50   ~ 0
+SDA
+Text Label 8100 5520 0    50   ~ 0
+SCL
+$Comp
+L BSidesPDX_2018:Badgelife_shitty_connector X?
+U 1 1 5B8E1565
+P 9030 5310
+F 0 "X?" H 9130 5747 60  0000 C CNN
+F 1 "Badgelife_shitty_connector" H 9120 5670 60  0000 C CNN
+F 2 "" H 9030 5310 60  0001 C CNN
+F 3 "" H 9030 5310 60  0001 C CNN
+	1    9030 5310
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8680 5410 8620 5410
+Wire Wire Line
+	8620 5410 8620 5560
+$Comp
+L power:GND #PWR?
+U 1 1 5B8E156D
+P 8620 5560
+F 0 "#PWR?" H 8620 5310 50  0001 C CNN
+F 1 "GND" H 8625 5387 50  0000 C CNN
+F 2 "" H 8620 5560 50  0001 C CNN
+F 3 "" H 8620 5560 50  0001 C CNN
+	1    8620 5560
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8680 5210 8620 5210
+Wire Wire Line
+	8620 5210 8620 5060
+Text Label 8620 5060 2    50   ~ 0
+3V0
+Wire Wire Line
+	9580 5210 9670 5210
+Wire Wire Line
+	9670 5210 9670 5060
+Wire Wire Line
+	9580 5410 9670 5410
+Wire Wire Line
+	9670 5410 9670 5560
+Text Label 9670 5060 0    50   ~ 0
+SDA
+Text Label 9670 5560 0    50   ~ 0
+SCL
 $EndSCHEMATC
