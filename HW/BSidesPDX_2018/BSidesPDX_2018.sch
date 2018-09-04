@@ -15,17 +15,6 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L BSidesPDX_2018:RGB_LED D?
-U 1 1 5B8B9026
-P 5850 3550
-F 0 "D?" H 5850 3875 50  0000 C CNN
-F 1 "RGB_LED" H 5850 3784 50  0000 C CNN
-F 2 "" H 5925 3325 50  0001 C CNN
-F 3 "" H 5925 3325 50  0001 C CNN
-	1    5850 3550
-	0    1    1    0   
-$EndComp
-$Comp
 L BSidesPDX_2018:Badgelife_shitty_connector X?
 U 1 1 5B8DDFA4
 P 2320 5270
@@ -70,25 +59,14 @@ F 3 "~" H 2640 3150 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:LED D?
-U 1 1 5B8DEB55
-P 2640 3410
-F 0 "D?" H 2631 3626 50  0000 C CNN
-F 1 "LED" H 2631 3535 50  0000 C CNN
-F 2 "" H 2640 3410 50  0001 C CNN
-F 3 "~" H 2640 3410 50  0001 C CNN
-	1    2640 3410
-	1    0    0    -1  
-$EndComp
-$Comp
 L Device:R R?
 U 1 1 5B8DEDCF
-P 5840 2950
-F 0 "R?" H 5910 2996 50  0000 L CNN
-F 1 "R" H 5910 2905 50  0000 L CNN
-F 2 "" V 5770 2950 50  0001 C CNN
-F 3 "~" H 5840 2950 50  0001 C CNN
-	1    5840 2950
+P 5710 2730
+F 0 "R?" H 5780 2776 50  0000 L CNN
+F 1 "R" H 5780 2685 50  0000 L CNN
+F 2 "" V 5640 2730 50  0001 C CNN
+F 3 "~" H 5710 2730 50  0001 C CNN
+	1    5710 2730
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -342,4 +320,200 @@ Text Label 9670 5060 0    50   ~ 0
 SDA
 Text Label 9670 5560 0    50   ~ 0
 SCL
+Wire Wire Line
+	5710 2975 5710 2880
+Wire Wire Line
+	5710 2980 5710 2975
+Connection ~ 5710 2975
+$Comp
+L BSidesPDX_2018:RGB_LED D?
+U 1 1 5B8B9026
+P 5710 3300
+F 0 "D?" H 5710 3625 50  0000 C CNN
+F 1 "RGB_LED" H 5710 3534 50  0000 C CNN
+F 2 "" H 5785 3075 50  0001 C CNN
+F 3 "" H 5785 3075 50  0001 C CNN
+	1    5710 3300
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	5710 3620 5710 3625
+Connection ~ 5710 3625
+Wire Wire Line
+	5810 3620 5810 3625
+Connection ~ 5810 3625
+Wire Wire Line
+	5610 3620 5610 3625
+Connection ~ 5610 3625
+Wire Wire Line
+	5610 3625 5610 3760
+$Comp
+L Device:R R?
+U 1 1 5B8EB873
+P 6380 2730
+F 0 "R?" H 6450 2776 50  0000 L CNN
+F 1 "R" H 6450 2685 50  0000 L CNN
+F 2 "" V 6310 2730 50  0001 C CNN
+F 3 "~" H 6380 2730 50  0001 C CNN
+	1    6380 2730
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6380 2975 6380 2880
+Wire Wire Line
+	6380 2980 6380 2975
+Connection ~ 6380 2975
+$Comp
+L BSidesPDX_2018:RGB_LED D?
+U 1 1 5B8EB87C
+P 6380 3300
+F 0 "D?" H 6380 3625 50  0000 C CNN
+F 1 "RGB_LED" H 6380 3534 50  0000 C CNN
+F 2 "" H 6455 3075 50  0001 C CNN
+F 3 "" H 6455 3075 50  0001 C CNN
+	1    6380 3300
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	6380 3620 6380 3625
+Connection ~ 6380 3625
+Wire Wire Line
+	6480 3620 6480 3625
+Connection ~ 6480 3625
+Wire Wire Line
+	6280 3620 6280 3625
+Connection ~ 6280 3625
+Wire Wire Line
+	6280 3625 6280 3760
+Wire Wire Line
+	5610 3760 6280 3760
+Wire Wire Line
+	5710 3890 6380 3890
+Wire Wire Line
+	5710 3625 5710 3890
+Wire Wire Line
+	6380 3625 6380 3890
+Wire Wire Line
+	5810 3990 6480 3990
+Wire Wire Line
+	5810 3625 5810 3990
+Wire Wire Line
+	6480 3625 6480 3990
+$Comp
+L Device:R R?
+U 1 1 5B8F20F4
+P 7000 2730
+F 0 "R?" H 7070 2776 50  0000 L CNN
+F 1 "R" H 7070 2685 50  0000 L CNN
+F 2 "" V 6930 2730 50  0001 C CNN
+F 3 "~" H 7000 2730 50  0001 C CNN
+	1    7000 2730
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7000 2975 7000 2880
+Wire Wire Line
+	7000 2980 7000 2975
+Connection ~ 7000 2975
+$Comp
+L BSidesPDX_2018:RGB_LED D?
+U 1 1 5B8F20FD
+P 7000 3300
+F 0 "D?" H 7000 3625 50  0000 C CNN
+F 1 "RGB_LED" H 7000 3534 50  0000 C CNN
+F 2 "" H 7075 3075 50  0001 C CNN
+F 3 "" H 7075 3075 50  0001 C CNN
+	1    7000 3300
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	7000 3620 7000 3625
+Connection ~ 7000 3625
+Wire Wire Line
+	7100 3620 7100 3625
+Connection ~ 7100 3625
+Wire Wire Line
+	6900 3620 6900 3625
+Connection ~ 6900 3625
+Wire Wire Line
+	6900 3625 6900 3760
+$Comp
+L Device:R R?
+U 1 1 5B8F210A
+P 7670 2730
+F 0 "R?" H 7740 2776 50  0000 L CNN
+F 1 "R" H 7740 2685 50  0000 L CNN
+F 2 "" V 7600 2730 50  0001 C CNN
+F 3 "~" H 7670 2730 50  0001 C CNN
+	1    7670 2730
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7670 2975 7670 2880
+Wire Wire Line
+	7670 2980 7670 2975
+Connection ~ 7670 2975
+$Comp
+L BSidesPDX_2018:RGB_LED D?
+U 1 1 5B8F2113
+P 7670 3300
+F 0 "D?" H 7670 3625 50  0000 C CNN
+F 1 "RGB_LED" H 7670 3534 50  0000 C CNN
+F 2 "" H 7745 3075 50  0001 C CNN
+F 3 "" H 7745 3075 50  0001 C CNN
+	1    7670 3300
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	7670 3620 7670 3625
+Connection ~ 7670 3625
+Wire Wire Line
+	7770 3620 7770 3625
+Connection ~ 7770 3625
+Wire Wire Line
+	7570 3620 7570 3625
+Connection ~ 7570 3625
+Wire Wire Line
+	7570 3625 7570 3760
+Wire Wire Line
+	7000 3625 7000 3890
+Wire Wire Line
+	7670 3625 7670 3890
+Wire Wire Line
+	7100 3625 7100 3990
+Wire Wire Line
+	6280 3760 6900 3760
+Connection ~ 6280 3760
+Connection ~ 6900 3760
+Wire Wire Line
+	6900 3760 7570 3760
+Wire Wire Line
+	6380 3890 7000 3890
+Connection ~ 6380 3890
+Connection ~ 7000 3890
+Wire Wire Line
+	7000 3890 7670 3890
+Wire Wire Line
+	6480 3990 7100 3990
+Wire Wire Line
+	7770 3625 7770 3990
+Connection ~ 6480 3990
+Connection ~ 7100 3990
+Wire Wire Line
+	7100 3990 7770 3990
+Wire Wire Line
+	5610 3760 5240 3760
+Connection ~ 5610 3760
+Wire Wire Line
+	5710 3890 5240 3890
+Connection ~ 5710 3890
+Wire Wire Line
+	5810 3990 5240 3990
+Connection ~ 5810 3990
+Text Label 5240 3760 2    50   ~ 0
+B_PWM
+Text Label 5240 3890 2    50   ~ 0
+G_PWM
+Text Label 5240 3990 2    50   ~ 0
+R_PWM
 $EndSCHEMATC
