@@ -1,15 +1,18 @@
 # HW
 ## TODO
-* Modify SAO footprint to be press-fit
 * AVR ISP Header footprint
 * Assign footprints
 * Verify AVR footprint
 * Add USB stuff for Joe
+  * USB footprint
+  * Resistor values
+  * Resistor footprint
 * All of Layout
   * Part placement
   * add traces
   * add lanyard PTH
 ## DONE
+* Modify SAO footprint to be press-fit
 * Battery holder footprint
 * Pullin footprints for passives
 * Find Resistors and Capacitors

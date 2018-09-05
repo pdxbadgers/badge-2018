@@ -20,7 +20,7 @@ U 1 1 5B8DDFA4
 P 1380 5955
 F 0 "X1" H 1480 6392 60  0000 C CNN
 F 1 "Badgelife_shitty_connector" H 1470 6315 60  0000 C CNN
-F 2 "BSidesPDX_2018:Badgelife-Shitty-2x2" H 1380 5955 60  0001 C CNN
+F 2 "BSidesPDX_2018:PRESS_FIT_SAO_CNX" H 1380 5955 60  0001 C CNN
 F 3 "" H 1380 5955 60  0001 C CNN
 	1    1380 5955
 	1    0    0    -1  
@@ -101,7 +101,7 @@ U 1 1 5B8E0671
 P 3000 5955
 F 0 "X2" H 3100 6392 60  0000 C CNN
 F 1 "Badgelife_shitty_connector" H 3090 6315 60  0000 C CNN
-F 2 "BSidesPDX_2018:Badgelife-Shitty-2x2" H 3000 5955 60  0001 C CNN
+F 2 "BSidesPDX_2018:PRESS_FIT_SAO_CNX" H 3000 5955 60  0001 C CNN
 F 3 "" H 3000 5955 60  0001 C CNN
 	1    3000 5955
 	1    0    0    -1  
@@ -145,7 +145,7 @@ U 1 1 5B8E1021
 P 4635 5955
 F 0 "X3" H 4735 6392 60  0000 C CNN
 F 1 "Badgelife_shitty_connector" H 4725 6315 60  0000 C CNN
-F 2 "BSidesPDX_2018:Badgelife-Shitty-2x2" H 4635 5955 60  0001 C CNN
+F 2 "BSidesPDX_2018:PRESS_FIT_SAO_CNX" H 4635 5955 60  0001 C CNN
 F 3 "" H 4635 5955 60  0001 C CNN
 	1    4635 5955
 	1    0    0    -1  
@@ -189,7 +189,7 @@ U 1 1 5B8E1038
 P 6365 5955
 F 0 "X4" H 6465 6392 60  0000 C CNN
 F 1 "Badgelife_shitty_connector" H 6455 6315 60  0000 C CNN
-F 2 "BSidesPDX_2018:Badgelife-Shitty-2x2" H 6365 5955 60  0001 C CNN
+F 2 "BSidesPDX_2018:PRESS_FIT_SAO_CNX" H 6365 5955 60  0001 C CNN
 F 3 "" H 6365 5955 60  0001 C CNN
 	1    6365 5955
 	1    0    0    -1  
@@ -233,7 +233,7 @@ U 1 1 5B8E1565
 P 8045 5955
 F 0 "X5" H 8145 6392 60  0000 C CNN
 F 1 "Badgelife_shitty_connector" H 8135 6315 60  0000 C CNN
-F 2 "BSidesPDX_2018:Badgelife-Shitty-2x2" H 8045 5955 60  0001 C CNN
+F 2 "BSidesPDX_2018:PRESS_FIT_SAO_CNX" H 8045 5955 60  0001 C CNN
 F 3 "" H 8045 5955 60  0001 C CNN
 	1    8045 5955
 	1    0    0    -1  
@@ -443,21 +443,21 @@ Wire Wire Line
 	7720 2930 7850 2930
 Connection ~ 7720 2530
 Wire Wire Line
-	2060 4230 2110 4230
+	1950 3760 2000 3760
 Wire Wire Line
-	2110 4230 2110 4330
-Connection ~ 2110 4230
+	2000 3760 2000 3860
+Connection ~ 2000 3760
 Wire Wire Line
-	2110 4230 2160 4230
+	2000 3760 2050 3760
 $Comp
 L power:GND #PWR0107
 U 1 1 5B92EDF1
-P 2110 4330
-F 0 "#PWR0107" H 2110 4080 50  0001 C CNN
-F 1 "GND" H 2115 4157 50  0000 C CNN
-F 2 "" H 2110 4330 50  0001 C CNN
-F 3 "" H 2110 4330 50  0001 C CNN
-	1    2110 4330
+P 2000 3860
+F 0 "#PWR0107" H 2000 3610 50  0001 C CNN
+F 1 "GND" H 2005 3687 50  0000 C CNN
+F 2 "" H 2000 3860 50  0001 C CNN
+F 3 "" H 2000 3860 50  0001 C CNN
+	1    2000 3860
 	1    0    0    -1  
 $EndComp
 Text Label 5595 3465 3    50   ~ 0
@@ -529,18 +529,18 @@ Wire Wire Line
 $Comp
 L MCU_Microchip_ATtiny:ATtiny861A-SU U1
 U 1 1 5B90B463
-P 2060 2915
-F 0 "U1" H 1430 2961 50  0000 R CNN
-F 1 "ATTINY861-15XD " H 1430 2870 50  0000 R CNN
-F 2 "Package_SO:SOIC-20W_7.5x12.8mm_P1.27mm" H 2060 2915 50  0001 C CIN
-F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/doc8197.pdf" H 2060 2915 50  0001 C CNN
-	1    2060 2915
+P 1950 2445
+F 0 "U1" H 1320 2491 50  0000 R CNN
+F 1 "ATTINY861-15XD " H 1320 2400 50  0000 R CNN
+F 2 "Package_SO:SOIC-20W_7.5x12.8mm_P1.27mm" H 1950 2445 50  0001 C CIN
+F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/doc8197.pdf" H 1950 2445 50  0001 C CNN
+	1    1950 2445
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	2160 4230 2160 4015
+	2050 3760 2050 3545
 Wire Wire Line
-	2060 4015 2060 4230
+	1950 3545 1950 3760
 Wire Wire Line
 	6885 4070 6885 4165
 $Comp
@@ -570,17 +570,17 @@ $EndComp
 Wire Wire Line
 	10665 1495 10665 1585
 Wire Wire Line
-	2160 1600 2110 1600
+	2050 1130 2000 1130
 Wire Wire Line
-	2110 1600 2110 1500
-Connection ~ 2110 1600
+	2000 1130 2000 1030
+Connection ~ 2000 1130
 Wire Wire Line
-	2110 1600 2060 1600
+	2000 1130 1950 1130
 Wire Wire Line
-	2060 1600 2060 1815
+	1950 1130 1950 1345
 Wire Wire Line
-	2160 1815 2160 1600
-Text Label 2110 1500 0    50   ~ 0
+	2050 1345 2050 1130
+Text Label 2000 1030 0    50   ~ 0
 3V0
 $Comp
 L Connector:AVR-ISP-6 J1
@@ -594,12 +594,12 @@ F 3 " ~" H 8630 2375 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	2760 3115 3315 3115
+	2650 2645 3205 2645
 Wire Wire Line
-	2760 3315 3315 3315
+	2650 2845 3205 2845
 Wire Wire Line
-	2760 3515 3315 3515
-Text Label 3315 3115 2    50   ~ 0
+	2650 3045 3205 3045
+Text Label 3205 2645 2    50   ~ 0
 R_PWM__MISO
 Wire Wire Line
 	5125 4950 5695 4950
@@ -646,14 +646,14 @@ Wire Wire Line
 	6985 4950 7655 4950
 Wire Wire Line
 	7455 4815 7455 5180
-Text Label 3315 3315 2    50   ~ 0
+Text Label 3205 2845 2    50   ~ 0
 G_PWM
-Text Label 3315 3515 2    50   ~ 0
+Text Label 3205 3045 2    50   ~ 0
 B_PWM
 Wire Wire Line
-	2760 3615 3315 3615
+	2650 3145 3205 3145
 Wire Wire Line
-	2760 3415 3315 3415
+	2650 2945 3205 2945
 Text Label 9805 2275 0    50   ~ 0
 3V0
 $Comp
@@ -670,24 +670,24 @@ $EndComp
 Wire Wire Line
 	9805 3325 9805 3415
 Wire Wire Line
-	2760 3715 3315 3715
+	2650 3245 3205 3245
 Wire Wire Line
-	2760 2115 3315 2115
+	2650 1645 3205 1645
 Wire Wire Line
-	2760 2215 3315 2215
+	2650 1745 3205 1745
 Wire Wire Line
-	2760 2315 3315 2315
+	2650 1845 3205 1845
 Wire Wire Line
-	2760 2415 3315 2415
+	2650 1945 3205 1945
 Wire Wire Line
-	2760 2515 3315 2515
+	2650 2045 3205 2045
 Wire Wire Line
-	2760 2615 3315 2615
+	2650 2145 3205 2145
 Wire Wire Line
-	2760 2715 3315 2715
+	2650 2245 3205 2245
 Wire Wire Line
-	2760 3215 3315 3215
-Text Label 3315 3015 2    50   ~ 0
+	2650 2745 3205 2745
+Text Label 3205 2545 2    50   ~ 0
 SDA_MOSI
 Wire Wire Line
 	10455 2725 10305 2725
@@ -699,7 +699,7 @@ Wire Wire Line
 	10455 3025 10305 3025
 Text Label 10455 2825 0    50   ~ 0
 SDA_MOSI
-Text Label 3315 3715 2    50   ~ 0
+Text Label 3205 3245 2    50   ~ 0
 ~RESET
 Text Label 10455 3025 0    50   ~ 0
 ~RESET
@@ -708,18 +708,18 @@ R_PWM__MISO
 Text Label 10455 2925 0    50   ~ 0
 SCL_SCK
 Wire Wire Line
-	2760 3015 3315 3015
-Text Label 3315 3215 2    50   ~ 0
+	2650 2545 3205 2545
+Text Label 3205 2745 2    50   ~ 0
 SCL_SCK
 Wire Wire Line
-	2760 2815 3315 2815
-Text Label 3315 2515 2    50   ~ 0
+	2650 2345 3205 2345
+Text Label 3205 2045 2    50   ~ 0
 EN_RGB1
-Text Label 3315 2615 2    50   ~ 0
+Text Label 3205 2145 2    50   ~ 0
 EN_RGB2
-Text Label 3315 2715 2    50   ~ 0
+Text Label 3205 2245 2    50   ~ 0
 EN_RGB3
-Text Label 3315 2815 2    50   ~ 0
+Text Label 3205 2345 2    50   ~ 0
 EN_RGB4
 Wire Wire Line
 	8150 2930 8500 2930
@@ -937,13 +937,13 @@ Wire Wire Line
 	7720 1870 7720 2130
 Connection ~ 6820 2130
 Connection ~ 7720 2130
-Text Label 3315 2115 2    50   ~ 0
+Text Label 3205 1645 2    50   ~ 0
 ROW1
-Text Label 3315 2215 2    50   ~ 0
+Text Label 3205 1745 2    50   ~ 0
 ROW2
-Text Label 3315 2315 2    50   ~ 0
+Text Label 3205 1845 2    50   ~ 0
 ROW3
-Text Label 3315 2415 2    50   ~ 0
+Text Label 3205 1945 2    50   ~ 0
 ROW4
 $Comp
 L Graphic:Logo_Open_Hardware_Small #LOGO1
@@ -976,9 +976,9 @@ F 12 "Active" H 9985 5470 60  0001 L CNN "Status"
 	1    9785 4270
 	1    0    0    -1  
 $EndComp
-Text Label 3315 3415 2    50   ~ 0
+Text Label 3205 2945 2    50   ~ 0
 L_SWITCH
-Text Label 3315 3615 2    50   ~ 0
+Text Label 3205 3145 2    50   ~ 0
 R_SWITCH
 Wire Wire Line
 	9985 4170 10140 4170
@@ -1076,4 +1076,82 @@ Wire Wire Line
 	9060 4920 9430 4920
 Wire Wire Line
 	9805 2425 9805 2275
+$Comp
+L Connector:USB_B_Micro J2
+U 1 1 5B8FAB2D
+P 2000 4690
+F 0 "J2" H 2055 5157 50  0000 C CNN
+F 1 "USB_B_Micro" H 2055 5066 50  0000 C CNN
+F 2 "" H 2150 4640 50  0001 C CNN
+F 3 "~" H 2150 4640 50  0001 C CNN
+	1    2000 4690
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2300 4490 2500 4490
+Wire Wire Line
+	2300 4690 2420 4690
+Wire Wire Line
+	2300 4890 2360 4890
+$Comp
+L power:GND #PWR04
+U 1 1 5B94549A
+P 2140 5160
+F 0 "#PWR04" H 2140 4910 50  0001 C CNN
+F 1 "GND" H 2145 4987 50  0000 C CNN
+F 2 "" H 2140 5160 50  0001 C CNN
+F 3 "" H 2140 5160 50  0001 C CNN
+	1    2140 5160
+	1    0    0    -1  
+$EndComp
+Text Label 2500 4490 2    50   ~ 0
+3V0
+Wire Wire Line
+	2360 4890 2360 5090
+Wire Wire Line
+	2360 5090 2140 5090
+Connection ~ 2000 5090
+Wire Wire Line
+	2140 5160 2140 5090
+Wire Wire Line
+	1900 5090 2000 5090
+Connection ~ 2140 5090
+Wire Wire Line
+	2140 5090 2000 5090
+$Comp
+L Device:R R5
+U 1 1 5B986B50
+P 2570 4690
+F 0 "R5" V 2490 4690 50  0000 C CNN
+F 1 "22R" V 2570 4690 50  0000 C CNN
+F 2 "" V 2500 4690 50  0001 C CNN
+F 3 "~" H 2570 4690 50  0001 C CNN
+	1    2570 4690
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	2300 4790 2720 4790
+$Comp
+L Device:R R6
+U 1 1 5B98F378
+P 2870 4790
+F 0 "R6" V 2940 4790 50  0000 C CNN
+F 1 "22R" V 2860 4790 50  0000 C CNN
+F 2 "" V 2800 4790 50  0001 C CNN
+F 3 "~" H 2870 4790 50  0001 C CNN
+	1    2870 4790
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	2720 4690 2780 4690
+Wire Wire Line
+	3020 4790 3090 4790
+Wire Wire Line
+	2780 4270 2780 4690
+Wire Wire Line
+	3090 4270 3090 4790
+Text Label 2780 4270 3    50   ~ 0
+L_SWITCH
+Text Label 3090 4270 3    50   ~ 0
+R_SWITCH
 $EndSCHEMATC
