@@ -1,8 +1,9 @@
 # HW
 ## TODO
-* AVR ISP Header footprint
 * Modify SAO footprint to be press-fit
+* AVR ISP Header footprint
 * Assign footprints
+* Verify AVR footprint
 * Add USB stuff for Joe
 * All of Layout
   * Part placement
