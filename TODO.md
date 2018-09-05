@@ -1,16 +1,17 @@
 # HW
 ## TODO
-* Find Resistors and Capacitors
 * Pullin footprints for passives
 * Battery holder footprint
 * AVR ISP Header footprint
 * Assign footprints
 * Add USB stuff for Joe
+* Modify SAO connector to be press-fit
 * All of Layout
   * Part placement
   * add traces
   * add lanyard PTH
 ## DONE
+* Find Resistors and Capacitors
 * Schematic  
 * MCU and battery holder part choices
 
