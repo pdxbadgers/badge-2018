@@ -1,12 +1,12 @@
 # HW
 ## TODO
-* AVR ISP Header footprint
-* Assign footprints
 * All of Layout
   * Part placement
   * add traces
   * add lanyard PTH
 ## DONE
+* AVR ISP Header footprint
+* Assign footprints
 * Verify AVR footprint
 * Modify SAO footprint to be press-fit
 * Battery holder footprint
