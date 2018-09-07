@@ -28,12 +28,12 @@
 
 # ART
 ## TODO 
-* Figure out art placement
 * Place icon art
 * Place marker for SAO
-* Place marker for lanyard holes
  
 ## DONE 
+* Figure out art placement
+* Place marker for lanyard holes
 * Find new art
 * Resize BSides logo and center
 * Art from previous project
