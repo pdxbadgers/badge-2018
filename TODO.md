@@ -28,10 +28,10 @@
 
 # ART
 ## TODO 
-* Place icon art
 * Place marker for SAO
  
 ## DONE 
+* Place icon art
 * Figure out art placement
 * Place marker for lanyard holes
 * Find new art
