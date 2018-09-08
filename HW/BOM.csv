@@ -1,11 +1,14 @@
 Description,Designator,Packing,Value,qty/board,manuf part #,supplier part#,supplier link,comments
-RGB LED,D101 – D104,Gull Wing 4pin,RGB_LED,4,XZMDKCBDDG45S-9 ,1497-1257-2-ND,https://www.digikey.com/product-detail/en/sunled/XZMDKCBDDG45S-9/1497-1257-2-ND/4902045,Tape & Reel
-Yellow LED,D1 – D12,Gull Wing 2pin,YLW_LED,12,LY T776-S1T1-26-Z ,475-2801-2-ND ,https://www.digikey.com/product-detail/en/osram-opto-semiconductors-inc/LY-T776-S1T1-26-Z/475-2801-2-ND/1938832,Tape & Reel
-Resistors,R1 – R4 R101 – R104,SMD 0603,100R,8,CRGCQ0603J100R,A130085DKR-ND ,https://www.digikey.com/product-detail/en/te-connectivity-passive-product/CRGCQ0603J100R/A130085DKR-ND/8579147,Digi-Reel
+RGB LED,D101-D104,Gull Wing 4pin,RGB_LED,4,XZMDKCBDDG45S-9 ,1497-1257-2-ND,https://www.digikey.com/product-detail/en/sunled/XZMDKCBDDG45S-9/1497-1257-2-ND/4902045,Tape & Reel
+Yellow LED,D1-D12,Gull Wing 2pin,YLW_LED,12,LY T776-S1T1-26-Z ,475-2801-2-ND ,https://www.digikey.com/product-detail/en/osram-opto-semiconductors-inc/LY-T776-S1T1-26-Z/475-2801-2-ND/1938832,Tape & Reel
+Resistors,R1-R4 R101-R104,SMD 0603,100R,8,CRGCQ0603J100R,A130085DKR-ND ,https://www.digikey.com/product-detail/en/te-connectivity-passive-product/CRGCQ0603J100R/A130085DKR-ND/8579147,Digi-Reel
+Resistors,R5 R6,SMD 0603,51R,2,,,,
+Resistors,R7,SMD 0603,1K,1,,,,
 Bypass Cap,C1,SMD 0805,10uF,1,C0805C106K8PACTU,399-4925-6-ND,https://www.digikey.com/product-detail/en/kemet/C0805C106K8PACTU/399-4925-6-ND/1787707,Digi-Reel
 Bypass Cap,C2,SMD 0603,0.1uF,1,CL10F104ZB8NNNC,1276-1012-6-ND,https://www.digikey.com/product-detail/en/samsung-electro-mechanics/CL10F104ZB8NNNC/1276-1012-6-ND/3891526,Digi-Reel
 Battery Retainer,BT1,SMD 2pin,Battery_Cell,1,3034TR,36-3034TR-ND,https://www.digikey.com/product-detail/en/keystone-electronics/3034TR/36-3034TR-ND/4499408,Tape & Reel
 MCU,U1,SOIC 20pin,ATTINY861-15XD ,1,ATTINY861-15XD,1611-ATTINY861-15XDCT-ND,https://www.digikey.com/product-detail/en/microchip-technology/ATTINY861-15XD/1611-ATTINY861-15XDCT-ND/6833287,cut tape
 Switch,SW1 SW2,Gull Wing 4pin,PTS645SM43SMTR92_LFS,2,PTS645SM43SMTR92 LFS ,CKN9112TR-ND,https://www.digikey.com/product-detail/en/c-k/PTS645SM43SMTR92-LFS/CKN9112TR-ND/1146840,Tape & Reel
+Connector,J2,SMD,USB_B_Micro,1,473460001,WM17141DKR-ND,https://www.digikey.com/product-detail/en/molex-llc/0473460001/WM17141DKR-ND/1846712,Digi-Reel
 lanyard,N/A,N/A,N/A,1,N/A,N/A,TBD,Bulk Bag
 battery,N/A,CR2032,3V,1,N/A,N/A,ebay.com/itm/1000-X-CR2032-2032-DL2032-LM2032-BR2032-Ultra-Power-bulk-3V-lithium-battery-/222282215964,Bulk Tray
