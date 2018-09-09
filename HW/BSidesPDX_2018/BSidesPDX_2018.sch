@@ -1123,4 +1123,8 @@ Wire Wire Line
 	3610 4790 3610 4580
 Wire Wire Line
 	3020 4790 3610 4790
+Text Label 2320 4690 0    50   ~ 0
+D+
+Text Label 2320 4790 0    50   ~ 0
+D-
 $EndSCHEMATC
