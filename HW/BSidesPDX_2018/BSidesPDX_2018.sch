@@ -680,27 +680,27 @@ EN_RGB4
 Wire Wire Line
 	8150 2930 8500 2930
 Text Label 8500 2130 2    50   ~ 0
-ROW2
+ROW_2
 Wire Wire Line
 	8150 2530 8500 2530
 Wire Wire Line
 	8150 2130 8500 2130
 Text Label 8500 2530 2    50   ~ 0
-ROW3
+ROW_3
 Text Label 8500 2930 2    50   ~ 0
-ROW4
+ROW_4
 Wire Wire Line
 	7250 2930 7600 2930
 Text Label 7600 2130 2    50   ~ 0
-ROW1
+ROW_1
 Wire Wire Line
 	7250 2530 7600 2530
 Wire Wire Line
 	7250 2130 7600 2130
 Text Label 7600 2530 2    50   ~ 0
-ROW3
+ROW_3
 Text Label 7600 2930 2    50   ~ 0
-ROW4
+ROW_4
 $Comp
 L Device:LED D7
 U 1 1 5BB892DC
@@ -807,27 +807,27 @@ Connection ~ 5885 2530
 Wire Wire Line
 	6315 2930 6665 2930
 Text Label 6665 2130 2    50   ~ 0
-ROW1
+ROW_1
 Wire Wire Line
 	6315 2530 6665 2530
 Wire Wire Line
 	6315 2130 6665 2130
 Text Label 6665 2530 2    50   ~ 0
-ROW2
+ROW_2
 Text Label 6665 2930 2    50   ~ 0
-ROW4
+ROW_4
 Wire Wire Line
 	5415 2930 5765 2930
 Text Label 5765 2130 2    50   ~ 0
-ROW1
+ROW_1
 Wire Wire Line
 	5415 2530 5765 2530
 Wire Wire Line
 	5415 2130 5765 2130
 Text Label 5765 2530 2    50   ~ 0
-ROW2
+ROW_2
 Text Label 5765 2930 2    50   ~ 0
-ROW3
+ROW_3
 Text Label 4985 1385 3    50   ~ 0
 ROW4
 Text Label 4985 2115 1    50   ~ 0
@@ -1086,45 +1086,48 @@ F 3 "~" H 2570 4690 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	2300 4790 2720 4790
+	2300 4790 2840 4790
 $Comp
 L Device:R R6
 U 1 1 5B98F378
-P 2870 4790
-F 0 "R6" V 2780 4790 50  0000 C CNN
-F 1 "51R" V 2860 4790 50  0000 C CNN
-F 2 "pkl_dipol:R_0603" V 2800 4790 50  0001 C CNN
-F 3 "~" H 2870 4790 50  0001 C CNN
-	1    2870 4790
+P 3085 4790
+F 0 "R6" V 2995 4790 50  0000 C CNN
+F 1 "51R" V 3075 4790 50  0000 C CNN
+F 2 "pkl_dipol:R_0603" V 3015 4790 50  0001 C CNN
+F 3 "~" H 3085 4790 50  0001 C CNN
+	1    3085 4790
 	0    -1   -1   0   
 $EndComp
-Text Label 3470 4690 2    50   ~ 0
+Text Label 3695 4690 2    50   ~ 0
 SDA_MOSI_D+
-Text Label 3470 4790 2    50   ~ 0
+Text Label 3700 4790 2    50   ~ 0
 SCL_SCK_D-
 Wire Wire Line
-	2720 4690 3470 4690
+	2720 4690 3695 4690
 $Comp
 L Device:R R7
 U 1 1 5B94AAC6
-P 3610 4430
-F 0 "R7" H 3680 4476 50  0000 L CNN
-F 1 "1K" H 3680 4385 50  0000 L CNN
-F 2 "pkl_dipol:R_0603" V 3540 4430 50  0001 C CNN
-F 3 "~" H 3610 4430 50  0001 C CNN
-	1    3610 4430
+P 2840 4430
+F 0 "R7" H 2910 4476 50  0000 L CNN
+F 1 "1K" H 2910 4385 50  0000 L CNN
+F 2 "pkl_dipol:R_0603" V 2770 4430 50  0001 C CNN
+F 3 "~" H 2840 4430 50  0001 C CNN
+	1    2840 4430
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	3610 4280 3610 4070
-Text Label 3610 4070 0    50   ~ 0
+	2840 4280 2840 4060
+Text Label 2840 4060 0    50   ~ 0
 3V0
-Wire Wire Line
-	3610 4790 3610 4580
-Wire Wire Line
-	3020 4790 3610 4790
 Text Label 2320 4690 0    50   ~ 0
 D+
 Text Label 2320 4790 0    50   ~ 0
 D-
+Wire Wire Line
+	3235 4790 3700 4790
+Wire Wire Line
+	2840 4790 2840 4580
+Connection ~ 2840 4790
+Wire Wire Line
+	2840 4790 2935 4790
 $EndSCHEMATC

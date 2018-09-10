@@ -1,3 +1,4 @@
 (fp_lib_table
   (lib (name BSidesPDX_2018)(type KiCad)(uri ${KIPRJMOD}/BSidesPDX_2018.pretty)(options "")(descr ""))
+  (lib (name pkl_dipol)(type KiCad)(uri /work/priv/KiCad/LIB/pretty-kicad-libs/pkl_dipol.pretty)(options "")(descr ""))
 )
