@@ -1,9 +1,10 @@
 Description,Designator,Packing,Value,qty/board,manuf part #,supplier part#,supplier link,comments
 RGB LED,D101-D104,Gull Wing 4pin,RGB_LED,4,XZMDKCBDDG45S-9 ,1497-1257-2-ND,https://www.digikey.com/product-detail/en/sunled/XZMDKCBDDG45S-9/1497-1257-2-ND/4902045,Tape & Reel
 Yellow LED,D1-D12,Gull Wing 2pin,YLW_LED,12,LY T776-S1T1-26-Z ,475-2801-2-ND ,https://www.digikey.com/product-detail/en/osram-opto-semiconductors-inc/LY-T776-S1T1-26-Z/475-2801-2-ND/1938832,Tape & Reel
+Zener Diodes,D13 D14,SOD323,D_Zener,2, MM3Z3V6T1G ,MM3Z3V6T1GOSDKR-ND ,https://www.digikey.com/product-detail/en/on-semiconductor/MM3Z3V6T1G/MM3Z3V6T1GOSDKR-ND/2623525,Digi-Reel
 Resistors,R1-R4 R101-R104,SMD 0603,100R,8,CRGCQ0603J100R,A130085DKR-ND ,https://www.digikey.com/product-detail/en/te-connectivity-passive-product/CRGCQ0603J100R/A130085DKR-ND/8579147,Digi-Reel
-Resistors,R5 R6,SMD 0603,51R,2,,,,
-Resistors,R7,SMD 0603,1K,1,,,,
+Resistors,R5 R6,SMD 0603,51R,2,CR0603-JW-510ELF ,CR0603-JW-510ELFTR-ND ,https://www.digikey.com/product-detail/en/bourns-inc/CR0603-JW-510ELF/CR0603-JW-510ELFTR-ND/3784392,Tape & Reel
+Resistors,R7,SMD 0603,1K,1, RMCF0603FT1K50 ,RMCF0603FT1K50DKR-ND ,https://www.digikey.com/product-detail/en/stackpole-electronics-inc/RMCF0603FT1K50/RMCF0603FT1K50DKR-ND/1943909,Digi-Reel
 Bypass Cap,C1,SMD 0805,10uF,1,C0805C106K8PACTU,399-4925-6-ND,https://www.digikey.com/product-detail/en/kemet/C0805C106K8PACTU/399-4925-6-ND/1787707,Digi-Reel
 Bypass Cap,C2,SMD 0603,0.1uF,1,CL10F104ZB8NNNC,1276-1012-6-ND,https://www.digikey.com/product-detail/en/samsung-electro-mechanics/CL10F104ZB8NNNC/1276-1012-6-ND/3891526,Digi-Reel
 Battery Retainer,BT1,SMD 2pin,Battery_Cell,1,3034TR,36-3034TR-ND,https://www.digikey.com/product-detail/en/keystone-electronics/3034TR/36-3034TR-ND/4499408,Tape & Reel
