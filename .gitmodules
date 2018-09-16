@@ -1,0 +1,3 @@
+[submodule "FW/micronucleus"]
+	path = FW/micronucleus
+	url = git@github.com:securelyfitz/micronucleus.git
