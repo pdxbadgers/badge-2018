@@ -2,7 +2,7 @@
 
   (general
     (thickness 1.6)
-    (drawings 412)
+    (drawings 413)
     (tracks 575)
     (zones 0)
     (modules 46)
@@ -9800,6 +9800,7 @@
     (pad 1 thru_hole circle (at 0 0) (size 5 5) (drill 5) (layers *.Cu *.Mask))
   )
 
+  (gr_poly (pts (xy 164.8 99.1) (xy 164.8 98.7) (xy 164.5 98.9)) (layer B.SilkS) (width 0.15))
   (gr_text "Design by:" (at 171.1833 78.994) (layer B.SilkS)
     (effects (font (size 1.5 1.5) (thickness 0.254)) (justify mirror))
   )

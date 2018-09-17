@@ -1,15 +1,13 @@
 # HW
 ## TODO
-2. U1 pin 1 not marked on PCB
 3. ICSP backwards ( but labels match layout
 4. OSH park logo backwards
-5. Battery terminals backwards. Gnd in middle, vcc on sides.
-7. Fork arduinocore and micronucleus to make an all in one board support package for arduino.
-Already fixed bootloader. Hold S2 to start bootloader, otherwise it goes straight to sketch.
 8. Keepout inside hearts on the SAO pins is too small, but noone should be soldering on front so IDK
 9. Need to tent vias.
 ## DONE
 1. USB ID should float.
+2. U1 pin 1 not marked on PCB
+5. Battery terminals backwards. Gnd in middle, vcc on sides.
 6. Ring around LED shorting Row1 and Row2
 * All of Layout
   * Part placement
@@ -27,6 +25,8 @@ Already fixed bootloader. Hold S2 to start bootloader, otherwise it goes straigh
 
 # FW
 ## TODO  
+* Fork arduinocore and micronucleus to make an all in one board support package for arduino.
+Already fixed bootloader. Hold S2 to start bootloader, otherwise it goes straight to sketch.
 * Setup Arduino for MCU
 * Port charlieplex code
 * Implement RGB PWM
