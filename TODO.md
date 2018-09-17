@@ -1,6 +1,5 @@
 # HW
 ## TODO
-1. USB ID should float.
 2. U1 pin 1 not marked on PCB
 3. ICSP backwards ( but labels match layout
 4. OSH park logo backwards
@@ -11,6 +10,7 @@ Already fixed bootloader. Hold S2 to start bootloader, otherwise it goes straigh
 8. Keepout inside hearts on the SAO pins is too small, but noone should be soldering on front so IDK
 9. Need to tent vias.
 ## DONE
+1. USB ID should float.
 * All of Layout
   * Part placement
   * add traces
