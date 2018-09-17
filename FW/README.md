@@ -18,13 +18,13 @@ RGB_PWM_test contains a script that...
 First, you need to install Arduino and the ATTinyCore board files. See their [instructions](https://github.com/SpenceKonde/ATTinyCore/blob/master/Installation.md).
 
 Next, you need to configure your arduino settings properly under the "tools" menu:
-Board: ATTiny261/461/861
-Save EEPROM: EEPROM Retained
-Timer 1 Clock: CPU
-LTO: Disabled
-BOD: Disabled
-Chip: ATTiny861
-Clock: 8MHz Internal
+* Board: ATTiny261/461/861
+* Save EEPROM: EEPROM Retained
+* Timer 1 Clock: CPU
+* LTO: Disabled
+* BOD: Disabled
+* Chip: ATTiny861
+* Clock: 8MHz Internal
 
 In the meantime, you'll need to use an external programmer - like the Arduino as ISP or USBASP - until we get micronucleus built into the arduino board files. 
 
@@ -32,7 +32,13 @@ In the meantime, you'll need to use an external programmer - like the Arduino as
 
 ![x61 pin mapping](http://drazzy.com/e/img/PinoutT861a.jpg "Arduino Pin Mapping for ATtiny x61 series")
 
-The ATTiny861 has 20 pins - 4 for power/ground and 16 I/O pins. Be careful, each pin has multiple names. There's the package pin number (1 to 20), the AVR GPIO name (PA0-7 and PB0-7), the Arduino digital number (0-14), the Arduino analog pin number (A0-10). For the most part, you want the Arduino digital number in your code.
+The ATTiny861 has 20 pins - 4 for power/ground and 16 I/O pins. Be careful, each pin has multiple names:
+* The package pin number (1 to 20)
+* The AVR GPIO name (PA0-7 and PB0-7)
+* The Arduino digital number (0-14)
+* The Arduino analog pin number (A0-10)
+
+For the most part, you want the Arduino digital number in your code.
 
 Here's the pin names as they're used on the badge. Someone really ought to make this into a header file.
 
@@ -65,7 +71,7 @@ const int L_SWITCH = 5; // PB4
 const int R_SWITCH = 3; // PB6
 
 const int RESET = 15; // PB7
-'''
+```
 
 ### Flashing
 To use the USB bootloader, you need a separate program, micronucleus. Someone really ought to add it to the Arduino IDE, but in the meantime, you can [download/build it yourself](https://github.com/micronucleus/micronucleus/tree/master/commandline)
