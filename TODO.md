@@ -1,10 +1,20 @@
 # HW
 ## TODO
+1. USB ID should float.
+2. U1 pin 1 not marked on PCB
+3. ICSP backwards ( but labels match layout
+4. OSH park logo backwards
+5. Battery terminals backwards. Gnd in middle, vcc on sides.
+6. Ring around LED shorting Row1 and Row2
+7. Fork arduinocore and micronucleus to make an all in one board support package for arduino.
+Already fixed bootloader. Hold S2 to start bootloader, otherwise it goes straight to sketch.
+8. Keepout inside hearts on the SAO pins is too small, but noone should be soldering on front so IDK
+9. Need to tent vias.
+## DONE
 * All of Layout
   * Part placement
   * add traces
   * add lanyard PTH
-## DONE
 * AVR ISP Header footprint
 * Assign footprints
 * Verify AVR footprint
@@ -28,6 +38,8 @@
 
 # ART
 ## TODO 
+* Fix Rain
+* Fix Sassquach
  
 ## DONE 
 * Place marker for SAO
