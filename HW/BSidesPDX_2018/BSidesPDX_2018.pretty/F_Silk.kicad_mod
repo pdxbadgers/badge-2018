@@ -1,8 +1,8 @@
-(module F_Silk (layer F.Cu) (tedit 5B9470B4)
-  (fp_text reference G*** (at 0 0) (layer F.SilkS) hide
+(module F_Silk (layer F.Cu) (tedit 5BA12CE5)
+  (fp_text reference G*** (at 0 0) (layer F.Fab) hide
     (effects (font (size 1.524 1.524) (thickness 0.3)))
   )
-  (fp_text value PDX (at 3.85 -3.2 180) (layer F.SilkS) hide
+  (fp_text value PDX (at 3.85 -3.2 180) (layer F.Fab) hide
     (effects (font (size 1.524 1.524) (thickness 0.3)))
   )
   (fp_poly (pts (xy 12.578291 2.613203) (xy 12.780907 2.621262) (xy 12.946572 2.630589) (xy 13.080664 2.641889)
