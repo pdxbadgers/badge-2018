@@ -1,11 +1,11 @@
 # HW
 ## TODO
-3. ICSP backwards ( but labels match layout
 8. Keepout inside hearts on the SAO pins is too small, but noone should be soldering on front so IDK
 9. Need to tent vias.
 ## DONE
 1. USB ID should float.
 2. U1 pin 1 not marked on PCB
+3. ICSP backwards ( but labels match layout
 4. OSH park logo backwards
 5. Battery terminals backwards. Gnd in middle, vcc on sides.
 6. Ring around LED shorting Row1 and Row2
