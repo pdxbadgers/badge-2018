@@ -1,3 +1,5 @@
+PRGRMR = arduino
+TARGET = t861
 CFLAGS=-Wall -g -Os -mmcu=attiny861
 SRC = main
 
@@ -6,7 +8,10 @@ build: $(SRC).c
 	avr-objcopy -j .text -j .data -O ihex $(SRC).bin $(SRC).hex
     
 flash:
-	avrdude -c arduino -p t861 -b 19200  -P /dev/ttyUSB0 -U flash:w:$(SRC).hex:i
+	avrdude -c $(PRGRMR) -p $(TARGET) -b 19200  -P /dev/ttyUSB0 -U flash:w:$(SRC).hex:i
+
+read_fuse:
+	avrdude -c $(PRGRMR) -p $(TARGET) -b 19200  -P /dev/ttyUSB0 -U efuse:r:efuse.hex:h -U lfuse:r:lfuse.hex:h -U hfuse:r:hfuse.hex:h
 
 clean:
 	rm *.o

@@ -1,0 +1,13 @@
+icon,diode,anode,cathode,LED,,ROW,PORTA,,EN_RGB,diode,PORTA
+mountain,D10,ROW_3,ROW_2,0,,ROW_1,PA0,,EN_RGB1,D101,PA4
+coffee,D5,ROW_2,ROW_3,1,,ROW_2,PA1,,EN_RGB2,D102,PA5
+rain,D11,ROW_4,ROW_3,2,,ROW_3,PA2,,EN_RGB3,D103,PA6
+bridge,D12,ROW_3,ROW_4,3,,ROW_4,PA3,,EN_RGB4,D104,PA7
+sasquatch,D9,ROW_4,ROW_2,4,,,,,,,
+book,D6,ROW_2,ROW_4,5,,,,,,,
+train,D7,ROW_4,ROW_1,6,,,,,,,
+beard,D3,ROW_1,ROW_4,7,,,,,,,
+bike,D8,ROW_3,ROW_1,8,,,,,,,
+donut,D2,ROW_1,ROW_3,9,,,,,,,
+rose,D4,ROW_2,ROW_1,10,,,,,,,
+beer,D1,ROW_1,ROW_2,11,,,,,,,
