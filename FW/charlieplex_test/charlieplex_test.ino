@@ -1,5 +1,5 @@
 // Test the charlieplexing and LED mapping
-// timing is not correct.
+
 
 // pin definitions
 #define ROW1 0

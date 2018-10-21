@@ -1,4 +1,4 @@
-#define F_CPU 1000000UL
+#define F_CPU 8000000UL
 
 #include <util/delay.h>
 #include <avr/io.h>
@@ -13,7 +13,7 @@ int main()
 {
     DDRA = ROW_4 | ROW_3 | ROW_2 | ROW_1;
 
-    char LED[D0, D1, D2];
+    //char LED[D0, D1, D2];
 
     for(;;) {
         PORTA |= (1 << PA2);

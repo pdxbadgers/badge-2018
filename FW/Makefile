@@ -13,6 +13,9 @@ flash:
 read_fuse:
 	avrdude -c $(PRGRMR) -p $(TARGET) -b 19200  -P /dev/ttyUSB0 -U efuse:r:efuse.hex:h -U lfuse:r:lfuse.hex:h -U hfuse:r:hfuse.hex:h
 
+# set clock ot internal 8Mhz
+write_fuse:
+	avrdude -c $(PRGRMR) -p $(TARGET) -b 19200  -P /dev/ttyUSB0 -U lfuse:w:0xe2:m
 clean:
 	rm *.o
 
