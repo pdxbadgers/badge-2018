@@ -1,6 +1,5 @@
 // Test the charlieplexing and LED mapping
 
-
 // pin definitions
 #define ROW1 0
 #define ROW2 1
