@@ -1,4 +1,4 @@
-const int EN_RGB1 = 10; // PA4
+ const int EN_RGB1 = 10; // PA4
 const int EN_RGB2 = 11; // PA5
 const int EN_RGB3 = 12; // PA6
 const int EN_RGB4 = 13; // PA7
@@ -7,6 +7,8 @@ const int G_PWM = 6; // PB3
 const int B_PWM = 4; // PB5
 
 byte red_pwm[10] = {26, 52, 78, 104, 130, 156, 182, 208, 234, 255};
+
+byte EN_RGB[4] = {EN_RGB1, EN_RGB2, EN_RGB3, EN_REGB4};
 
 void setup() {
   // put your setup code here, to run once:
@@ -19,24 +21,24 @@ void setup() {
   pinMode(B_PWM, OUTPUT);
 
   // Cleared on compare match, enable PWM on OC1A
-  //TCCR1A = (1 << COM1A1) | (1 << PWM1A); 
+  TCCR1A = (1 << COM1A1) | (1 << PWM1A); 
   
   // Set presacle to CLK/ -> PWM Freq 3.926Khhz
-  //TCCR1B = (1 << CS11) | (1 << CS10);
-  OCR1A = 0;
+  TCCR1B = (1 << CS11) | (1 << CS10);
+  //OCR1A = 66;
   
-  //digitalWrite(EN_RGB1, HIGH);
-  digitalWrite(EN_RGB2, HIGH);
-  //digitalWrite(B_PWM, HIGH);
-
-
+  digitalWrite(EN_RGB1, HIGH);
+  digitalWrite(G_PWM, HIGH);
+  digitalWrite(B_PWM, HIGH);
+  //digitalWrite(EN_RGB2, HIGH);
+  
 }
 
 void loop() {
   int i;
 
   for (i = 0; i < 255; i+=4) {
-    OCR1A = i;
+    OCR1A = 255 - i;
     delay(100);
   }
   OCR1A = 0;
