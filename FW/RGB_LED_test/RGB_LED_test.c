@@ -7,13 +7,14 @@
 #define EN_RGB2 (1 << PA5) // 11
 #define EN_RGB3 (1 << PA6) // 12
 #define EN_RGB4 (1 << PA7) // 13
+
 #define R_PWM   (1 << PB1) // 8
 #define G_PWM   (1 << PB3) // 6
 #define B_PWM   (1 << PB5) // 4
 
-// PWM1A RED
-// PWM1B Green
-// PWM1D Blue
+#define EN_R_PWM (1 << PWM1A)
+#define EN_G_PWM (1 << PWM1B)
+#define EN_B_PWM (1 << PWM1D)
 
 #define NUM_RGB_LEDs 4
 #define PWM_MAX 255
@@ -31,10 +32,17 @@ void setup()
     PORTB = B_PWM | G_PWM | R_PWM;
 
     // Cleared on compare match, enable PWM on OC1A
-    TCCR1A = (1 << COM1A1) | (1 << COM1B1) | (1 << PWM1A); 
+    TCCR1A = (1 << COM1A1) | (1 << COM1B1) | EN_R_PWM;
 
     // Set presacle to CLK/4 -> PWM Freq 3.926Khhz
     TCCR1B = (1 << CS11) | (1 << CS10);
+
+    //TCCR1C = ( 1 << COM1D1) | EN_B_PWM;
+
+    // "turn off" Green and Blue LEDs
+    //OCR1A = PWM_MAX;
+    //OCR1B = PWM_MAX;
+    //OCR1D = PWM_MAX;
 }
 
 int main()
