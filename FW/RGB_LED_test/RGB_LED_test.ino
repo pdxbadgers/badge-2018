@@ -1,23 +1,26 @@
 #include <util/delay.h>
+#include <stdint.h>
 
-const int EN_RGB1 = (1 << PA4); //10; // PA4
-const int EN_RGB2 = (1 << PA5); //11; // PA5
-const int EN_RGB3 = (1 << PA6); //12; // PA6
-const int EN_RGB4 = (1 << PA7); //13; // PA7
-const int R_PWM = 8; // PB1
-const int G_PWM = 6; // PB3
-const int B_PWM = 4; // PB5
+const uint8_t EN_RGB1 = (1 << PA4); // 10
+const uint8_t EN_RGB2 = (1 << PA5); // 11
+const uint8_t EN_RGB3 = (1 << PA6); // 12
+const uint8_t EN_RGB4 = (1 << PA7); // 13
+const uint8_t R_PWM = (1 << PB1);   // 8
+const uint8_t G_PWM = (1 << PB3);   // 6
+const uint8_t B_PWM = (1 << PB5);   // 4
 
-const byte NUM_RGB_LEDs = 4;
-const byte PWM_MAX = 255;
+const uint8_t NUM_RGB_LEDs = 4;
+const uint8_t PWM_MAX = 255;
+const uint8_t NUM_COLORS = 3;
 
-byte en_rgb_led[NUM_RGB_LEDs] = {EN_RGB1, EN_RGB2, EN_RGB3, EN_RGB4};
+const uint8_t en_rgb_led[NUM_RGB_LEDs] = {EN_RGB1, EN_RGB2, EN_RGB3, EN_RGB4};
+
 
 void setup()
 {
     DDRA = EN_RGB4 | EN_RGB3 | EN_RGB2 | EN_RGB1;
 
-    /*
+/*
     pinMode(EN_RGB1, OUTPUT);
     pinMode(EN_RGB2, OUTPUT);
     pinMode(EN_RGB3, OUTPUT);
@@ -39,21 +42,25 @@ void setup()
     digitalWrite(B_PWM, HIGH);
 }
 
-void loop()
+int main()
 {
-    byte led;
-    byte color
-    byte i;
+    uint8_t led;
+    uint8_t color;
+    uint8_t i;
 
-    // loop through all RGB LEDs pulsing red
-    for (led = 0; led < NUM_RGB_LEDs; led++)
-    {
-        PORTA |= en_rgb_led[led];
-        for (i = 0; i < PWM_MAX; i++)
-        {
-            OCR1A = PWM_MAX - i;
-            _delay_ms(4);
+    setup();
+
+    for(;;) {
+        // loop through all RGB LEDs pulsing red
+        for (led = 0; led < NUM_RGB_LEDs; led++) {
+            PORTA |= en_rgb_led[led];
+            for (color = 0; i < NUM_COLORS; color++) {
+                for (i = 0; i < PWM_MAX; i++) {
+                    OCR1A = PWM_MAX - i;
+                    _delay_ms(4);
+                }
+                PORTA &= ~(en_rgb_led[led]);
+            }
         }
-        PORTA &= ~(en_rgb_led[led]);
     }
 }
