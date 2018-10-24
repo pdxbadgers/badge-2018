@@ -2,6 +2,7 @@
 #include <avr/io.h>
 #include <util/delay.h>
 #include <stdint.h>
+#include <avr/interupts.h>
 
 // pins to enable the RGB LEDs
 #define EN_RGB1 (1 << PA4) // 10
@@ -33,8 +34,23 @@
 uint8_t en_rgb_led[NUM_RGB_LEDs] = {EN_RGB1, EN_RGB2, EN_RGB3, EN_RGB4};
 volatile uint8_t *rgb_duty_cycle[NUM_COLORS] = {&R_DUTY_CYCLE, &G_DUTY_CYCLE, &B_DUTY_CYCLE};
 
-void setup()
+// set up timer0 for timed events timed events timed events timed events
+void init_timer0()
 {
+    // enable interupt OCR0A match
+    TIMSK |= (1 << OC1E0A);
+
+    // set prescaler to CLK/8
+    TCCR0B |= (1 << CS01) | (1 << CS00);
+
+    sei();
+ }
+
+
+// set up timer1 for PWM
+void init_timer1()
+{
+    // TODO: move this code
     // enable output
     DDRA |= EN_RGB4 | EN_RGB3 | EN_RGB2 | EN_RGB1;
     DDRB |= B_PWM | G_PWM | R_PWM;
@@ -44,7 +60,8 @@ void setup()
 
     // RBG LEDs are common Anode, logic one on cathod turns them off
     PORTB |= R_PWM | G_PWM | B_PWM;
- 
+
+
     // PWM Freq = (8Mhz/255) / prescale
     // Set presacle to CLK/16 -> PWM Freq 1.961Khz
     TCCR1B |= (1 << CS12) | (1 << CS10);
@@ -58,17 +75,25 @@ void setup()
     // start with all LEDs off
     R_DUTY_CYCLE = PWM_MAX;
     G_DUTY_CYCLE = PWM_MAX;
-    B_DUTY_CYCLE = PWM_MAX;
+    B_DUTY_CYCLE = PWM_MAX;}
+
+void setup()
+{
+    init_timer0();
 }
 
 int main()
 {
+#if 0
     uint8_t led;
     uint8_t color;
     uint8_t i;
+#endif
 
     setup();
+    sei();
 
+#if 0
     for(;;) {
         // loop through all RGB LEDs pulsing red, green, blue
         for (led = 0; led < NUM_RGB_LEDs; led++) {
@@ -84,6 +109,6 @@ int main()
             }
         }
     }
-
+#endif
     return 0;
 }
