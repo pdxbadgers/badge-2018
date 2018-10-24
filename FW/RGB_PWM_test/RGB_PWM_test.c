@@ -17,8 +17,8 @@
 
 // register bit to enable PWM
 #define EN_R_PWM (1 << PWM1A)
-#define EN_G_PWM (1 << PWM1B)
-#define EN_B_PWM (1 << PWM1D)
+#define EN_G_PWM (1 << PWM1D)
+#define EN_B_PWM (1 << PWM1B)
 
 // PWM duty cycle registers
 // footprint for the RBG LED has Green and Blue swapped, correcting in FW.
@@ -50,7 +50,13 @@ void setup()
     TCCR1B = (1 << CS12) | (1 << CS10);
 
     // Cleared on compare match, enable Fast PWM for Red
-    TCCR1A = (1 << COM1A1) | EN_R_PWM;
+    //TCCR1A = (1 << COM1A1) | EN_R_PWM;
+
+    // Cleared on compare match, enable Fast PWM for Green
+    //TCCR1C = (1 << COM1D1) | EN_G_PWM;
+ 
+    // Cleared on compare match, enable Fast PWM for Green
+    TCCR1A = (1 << COM1B1) | EN_B_PWM;
 }
 
 int main()
@@ -66,7 +72,7 @@ int main()
         for (led = 0; led < NUM_RGB_LEDs; led++) {
             PORTA |= en_rgb_led[led];
                 for (i = 0; i < PWM_MAX; i++) {
-                    R_DUTY_CYCLE = PWM_MAX - i;
+                    B_DUTY_CYCLE = PWM_MAX - i;
                     _delay_ms(32);
                 }
                 PORTA &= ~(en_rgb_led[led]);
