@@ -51,9 +51,6 @@ void setup()
 
     // Cleared on compare match, enable Fast PWM for Red
     TCCR1A = (1 << COM1A1) | EN_R_PWM;
-
-
-    //TCCR1C = ( 1 << COM1D1) | EN_B_PWM;
 }
 
 int main()

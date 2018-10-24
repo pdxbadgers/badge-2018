@@ -16,11 +16,6 @@
 #define G_PWM   (1 << PB5) // 4
 #define B_PWM   (1 << PB3) // 6
 
-// register bit to enable PWM
-#define EN_R_PWM (1 << PWM1A)
-#define EN_G_PWM (1 << PWM1B)
-#define EN_B_PWM (1 << PWM1D)
-
 #define NUM_RGB_LEDs 4
 #define NUM_COLORS 3
 
@@ -56,7 +51,7 @@ int main()
             for (color = 0; color < NUM_COLORS; color++) {
                 PORTA |= en_rgb_led[led];
                 PORTB &= ~colors[color];
-                _delay_ms(250);
+                _delay_ms(1000);
                 PORTB |= colors[color];
                 PORTA &= ~(en_rgb_led[led]);
             }
