@@ -102,6 +102,7 @@ ISR(TIMER0_COMPA_vect)
 void setup()
 {
     timer0_init();
+    timer1_init();
 }
 
 int main()
