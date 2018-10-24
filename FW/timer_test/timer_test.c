@@ -32,9 +32,23 @@
 #define PWM_MAX 255
 
 
+// hold all RGB enable pins
 uint8_t en_rgb_led[NUM_RGB_LEDs] = {EN_RGB1, EN_RGB2, EN_RGB3, EN_RGB4};
+
+// hold the address of the PWM duty cycle counter registers
 volatile uint8_t *rgb_duty_cycle[NUM_COLORS] = {&R_DUTY_CYCLE, &G_DUTY_CYCLE, &B_DUTY_CYCLE};
+
+// counter for implementing a software timer
 volatile uint8_t tick = 0;
+
+// counter for computing PWM duty cycle
+volatile uint8_t duty_cycle = 0;
+
+// counter for cycling through the RGB LEDs.
+volatile uint8_t rgb_led = 0;
+
+// counter for cylcing thourgh the RGB colors.
+volatile uint8_t color = 0;
 
 // set up timer0 for timed events
 void timer0_init()
@@ -91,11 +105,24 @@ void pins_init()
 ISR(TIMER0_COMPA_vect)
 {
     tick++;
-    PORTA ^= EN_RGB1;
+    //PORTA ^= EN_RGB1;
 
     // Vary the PWM duty cycle every 8ms 
-    if ((tick % 16) == 0)
-        PORTA ^= EN_RGB2;
+    if ((tick % 32) == 0) {
+        // set PWM duty cycle for a given color
+        *rgb_duty_cycle[color] = PWM_MAX - duty_cycle;
+        duty_cycle++;
+
+        if (PWM_MAX == duty_cycle) {
+            // turn off the current colore before switching to the next
+            *rgb_duty_cycle[color] = PWM_MAX; 
+            color++;
+            duty_cycle = 0;
+        }
+
+        if (NUM_COLORS == color)
+            color = 0;
+    }
 }
 
 
@@ -107,15 +134,13 @@ void setup()
 
 int main()
 {
-#if 0
-    uint8_t led;
-    uint8_t color;
-    uint8_t i;
-#endif
 
     setup();
     pins_init();
     sei();
+    PORTA |= EN_RGB1;
+
+
     while(1);
 
 #if 0
