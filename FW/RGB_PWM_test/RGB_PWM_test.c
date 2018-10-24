@@ -31,7 +31,7 @@
 #define PWM_MAX 255
 
 uint8_t en_rgb_led[NUM_RGB_LEDs] = {EN_RGB1, EN_RGB2, EN_RGB3, EN_RGB4};
-volatile uint8_t *rbg_duty_cycle[NUM_COLORS] = {&R_DUTY_CYCLE, &G_DUTY_CYCLE, &B_DUTY_CYCLE};
+volatile uint8_t *rgb_duty_cycle[NUM_COLORS] = {&R_DUTY_CYCLE, &G_DUTY_CYCLE, &B_DUTY_CYCLE};
 
 void setup()
 {
@@ -54,6 +54,11 @@ void setup()
 
     // Cleared on compare match, enable Fast PWM for Green
     TCCR1C |= (1 << COM1D1) | EN_G_PWM;
+
+    // start with all LEDs off
+    R_DUTY_CYCLE = PWM_MAX;
+    G_DUTY_CYCLE = PWM_MAX;
+    B_DUTY_CYCLE = PWM_MAX;
 }
 
 int main()
@@ -65,18 +70,18 @@ int main()
     setup();
 
     for(;;) {
-        // loop through all RGB LEDs pulsing red
+        // loop through all RGB LEDs pulsing red, green, blue
         for (led = 0; led < NUM_RGB_LEDs; led++) {
- //           for (color = 0; color < NUM_COLORS; color++) {
+            for (color = 0; color < NUM_COLORS; color++) {
                 for (i = 0; i < PWM_MAX; i++) {
                     PORTA |= en_rgb_led[led];
-                    R_DUTY_CYCLE = i;
-                    G_DUTY_CYCLE = PWM_MAX - i;
-                    B_DUTY_CYCLE = PWM_MAX/2 -i;
+                    *rgb_duty_cycle[color] = PWM_MAX - i;
                     _delay_ms(8);
+                    // turn off the current colore before switching to the next
+                    *rgb_duty_cycle[color] = PWM_MAX; 
                     PORTA &= ~(en_rgb_led[led]);
                 }
-            //}
+            }
         }
     }
 
