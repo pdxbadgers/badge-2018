@@ -2,6 +2,7 @@
 
 #define F_CPU 8000000UL
 #include <avr/io.h>
+#include <avr/interrupt.h>
 #include <util/delay.h>
 #include <stdint.h>
 
@@ -17,17 +18,17 @@
 #define FAST_SPEED 75
 #define SPEED SLOW_SPEED
 
-// pins to enable the RGB LEDs
-#define EN_RGB1 (1 << PA4) // 10
-#define EN_RGB2 (1 << PA5) // 11
-#define EN_RGB3 (1 << PA6) // 12
-#define EN_RGB4 (1 << PA7) // 13
+// RGB LED pin definitions
+#define EN_RGB1 (1 << PA4)
+#define EN_RGB2 (1 << PA5)
+#define EN_RGB3 (1 << PA6)
+#define EN_RGB4 (1 << PA7)
 
 // PWM output pins
-// footprint for the RBG LED has Green and Blue swapped, correcting in FW.
-#define R_PWM   (1 << PB1) // 8
-#define G_PWM   (1 << PB5) // 4
-#define B_PWM   (1 << PB3) // 6
+// FIXME: footprint for the RBG LED has Green and Blue swapped, correcting in FW.
+#define R_PWM (1 << PB1)
+#define G_PWM (1 << PB5)
+#define B_PWM (1 << PB3)
 
 // register bit to enable PWM
 #define EN_R_PWM (1 << PWM1A)
@@ -35,11 +36,12 @@
 #define EN_B_PWM (1 << PWM1B)
 
 // PWM duty cycle registers
-// footprint for the RBG LED has Green and Blue swapped, correcting in FW.
+// FIXME: footprint for the RBG LED has Green and Blue swapped, correcting in FW.
 #define R_DUTY_CYCLE OCR1A
 #define G_DUTY_CYCLE OCR1D
 #define B_DUTY_CYCLE OCR1B
 
+// misc constants
 #define NUM_RGB_LEDs 4
 #define NUM_YLW_LEDS 12
 #define NUM_COLORS 3
@@ -105,6 +107,15 @@ void timer1_init()
     TCCR1C |= (1 << COM1D1) | EN_G_PWM;
 }
 
+// turn off all the yellow LEDs
+void all_off_yellow_led()
+{
+    // high Z for all ROW pins
+    DDRA &= ~ROW4 & ~ROW3 & ~ROW2 & ~ROW1;
+    PORTA &= ~ROW4 & ~ROW3 & ~ROW2 & ~ROW1;
+}
+
+
 // set up GPIO pin directions and logic levels
 void pins_init()
 {
@@ -112,13 +123,14 @@ void pins_init()
     DDRA |= EN_RGB4 | EN_RGB3 | EN_RGB2 | EN_RGB1;
     DDRB |= B_PWM | G_PWM | R_PWM;
 
-    // diable all LEDs
+    all_off_yellow_led();
+
+    // diable all RGB LEDs
     PORTA &= ~EN_RGB4 & ~EN_RGB3 & ~EN_RGB2 & ~EN_RGB1;
 
     // RBG LEDs are common Anode, logic one on cathod turns them off
     PORTB |= R_PWM | G_PWM | B_PWM;
 
-    all_off_led();
 
     // start with all LEDs off
     R_DUTY_CYCLE = PWM_MAX;
@@ -126,11 +138,14 @@ void pins_init()
     B_DUTY_CYCLE = PWM_MAX;
 }
 
+
+// run all the initialization functions and turn on interupts
 void setup()
 {
     timer0_init();
     timer1_init();
     pins_init();
+    sei();
 }
 
 
@@ -170,16 +185,8 @@ ISR(TIMER0_COMPA_vect)
     PORTA &= ~(en_rgb_led[rgb_led]);
 }
 
-// turn off all the yellow LEDs
-void all_off_yellow_led()
-{
-    // high Z for all ROW pins
-    DDRA &= ~ROW4 & ~ROW3 & ~ROW2 & ~ROW1;
-    PORTA &= ~ROW4 & ~ROW3 & ~ROW2 & ~ROW1;
-}
-
 // turn on a given LED, param is a an {ANODE,CATHODE} pair
-void on_led(uint8_t *LED)
+void on_yellow_led(uint8_t *LED)
 {
     // Set pins to output
     DDRA |= LED[ANODE] | LED[CATHODE];
@@ -190,17 +197,17 @@ void on_led(uint8_t *LED)
 }
 
 // turn off a given LED by high Z the LED pins, param is a an {ANODE,CATHODE} pair
-void off_led(uint8_t *LED)
+void off_yellow_led(uint8_t *LED)
 {
     DDRA &= ~LED[ANODE] & ~LED[CATHODE];
     PORTA &= ~LED[ANODE] & ~LED[CATHODE];
 }
 
-void blink_led(uint8_t *LED)
+void blink_yellow_led(uint8_t *LED)
 {
-    on_led(LED);
+    on_yellow_led(LED);
     _delay_ms(SPEED);
-    off_led(LED); 
+    off_yellow_led(LED); 
 }
 
 void cycle_led()
@@ -208,11 +215,12 @@ void cycle_led()
     uint8_t i;
 
     for (i = 0; i < NUM_YLW_LEDS; i++)
-        blink_led(LED[i]);
+        blink_yellow_led(LED[i]);
 }
 
 int main()
 {
+    setup();
 
     for (;;) {
         cycle_led();
