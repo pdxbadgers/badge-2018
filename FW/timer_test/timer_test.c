@@ -37,30 +37,20 @@ volatile uint8_t *rgb_duty_cycle[NUM_COLORS] = {&R_DUTY_CYCLE, &G_DUTY_CYCLE, &B
 // set up timer0 for timed events timed events timed events timed events
 void init_timer0()
 {
+    // enable 16 bit counting
+    TCCR0A |= (1 << TCW0);
+
     // enable interupt OCR0A match
     TIMSK |= (1 << OC1E0A);
 
-    // set prescaler to CLK/8
+    // set prescaler to CLK/64, Timer0 Freq = 8Mhz/64 = 125Khz
     TCCR0B |= (1 << CS01) | (1 << CS00);
-
-    sei();
  }
 
 
 // set up timer1 for PWM
 void init_timer1()
 {
-    // TODO: move this code
-    // enable output
-    DDRA |= EN_RGB4 | EN_RGB3 | EN_RGB2 | EN_RGB1;
-    DDRB |= B_PWM | G_PWM | R_PWM;
-
-    // diable all LEDs
-    PORTA &= ~EN_RGB4 & ~EN_RGB3 & ~EN_RGB2 & ~EN_RGB1;
-
-    // RBG LEDs are common Anode, logic one on cathod turns them off
-    PORTB |= R_PWM | G_PWM | B_PWM;
-
 
     // PWM Freq = (8Mhz/255) / prescale
     // Set presacle to CLK/16 -> PWM Freq 1.961Khz
@@ -72,10 +62,31 @@ void init_timer1()
     // Cleared on compare match, enable Fast PWM for Green
     TCCR1C |= (1 << COM1D1) | EN_G_PWM;
 
+}
+
+// set up GPIO pin directions and logic levels
+void init_pins()
+{
+    // enable output
+    DDRA |= EN_RGB4 | EN_RGB3 | EN_RGB2 | EN_RGB1;
+    DDRB |= B_PWM | G_PWM | R_PWM;
+
+    // diable all LEDs
+    PORTA &= ~EN_RGB4 & ~EN_RGB3 & ~EN_RGB2 & ~EN_RGB1;
+
+    // RBG LEDs are common Anode, logic one on cathod turns them off
+    PORTB |= R_PWM | G_PWM | B_PWM;
+
     // start with all LEDs off
     R_DUTY_CYCLE = PWM_MAX;
     G_DUTY_CYCLE = PWM_MAX;
-    B_DUTY_CYCLE = PWM_MAX;}
+    B_DUTY_CYCLE = PWM_MAX;
+}
+
+ISR(TIMER0_COMPA_vect)
+{
+
+}
 
 void setup()
 {
