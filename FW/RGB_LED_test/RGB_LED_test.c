@@ -34,6 +34,9 @@ void setup()
     DDRA = EN_RGB4 | EN_RGB3 | EN_RGB2 | EN_RGB1;
     DDRB = B_PWM | G_PWM | R_PWM;
 
+    PORTA |= EN_RGB1;
+    PORTB |= R_PWM | G_PWM | B_PWM;
+    PORTB &= ~B_PWM;
 }
 
 int main()
@@ -44,6 +47,7 @@ int main()
 
     setup();
 
+#if 0
     for(;;) {
         for (led = 0; led < NUM_RGB_LEDs; led++) {
             PORTA |= en_rgb_led[led];
@@ -51,6 +55,6 @@ int main()
             PORTA &= ~(en_rgb_led[led]);
         }
     }
-
+#endif
     return 0;
 }
