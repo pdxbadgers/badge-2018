@@ -59,8 +59,8 @@ void timer0_init()
     // set clock source to prescaler CLK/256, Timer0 Freq = 8Mhz/256 = 31.25Khz
     TCCR0B |= (1 << CS02);
 
-    // RGB LED Mux timer, 31.25Khz/3 10.416Khz
-    OCR0A = 3; 
+    // RGB LED Mux timer, 31.25Khz/8 3.906Khz
+    OCR0A = 8; 
 
     // enable interupt OCR0A match
     TIMSK |= (1 << OCIE0A);
@@ -105,15 +105,24 @@ void pins_init()
 ISR(TIMER0_COMPA_vect)
 {
     tick++;
-    //PORTA ^= EN_RGB1;
 
-    // Vary the PWM duty cycle every 8ms 
+    // turn on a given rgb_led
+    PORTA |= en_rgb_led[rgb_led];
+
+
+    rgb_led++;
+    if (NUM_RGB_LEDs == rgb_led)
+        rgb_led = 0;
+
+
+    // Vary the PWM duty cycle every ???ms 
     if ((tick % 32) == 0) {
         // set PWM duty cycle for a given color
         *rgb_duty_cycle[color] = PWM_MAX - duty_cycle;
-        duty_cycle++;
+        
+        duty_cycle++; //FIXME: chaning the step value sometimes breaks functionality
 
-        if (PWM_MAX == duty_cycle) {
+        if (duty_cycle == PWM_MAX) {
             // turn off the current colore before switching to the next
             *rgb_duty_cycle[color] = PWM_MAX; 
             color++;
@@ -123,6 +132,9 @@ ISR(TIMER0_COMPA_vect)
         if (NUM_COLORS == color)
             color = 0;
     }
+
+    // turn off a given rgb_led
+    PORTA &= ~(en_rgb_led[rgb_led]);
 }
 
 
