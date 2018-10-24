@@ -7,7 +7,7 @@ build: $(SRC).c
 	avr-gcc $(CFLAGS) -o $(SRC).bin $(SRC).c
 	avr-objcopy -j .text -j .data -O ihex $(SRC).bin $(SRC).hex
     
-flash:
+flash: build
 	avrdude -c $(PRGRMR) -p $(TARGET) -b 19200  -P /dev/ttyUSB0 -U flash:w:$(SRC).hex:i
 
 read_fuse:

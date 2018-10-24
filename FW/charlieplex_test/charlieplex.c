@@ -71,5 +71,8 @@ void cycle_led()
 int main()
 {
     all_off_led();
-    cycle_led();
+
+    for (;;) {
+        cycle_led();
+    }
 }
