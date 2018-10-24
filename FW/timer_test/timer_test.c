@@ -37,6 +37,8 @@ volatile uint8_t *rgb_duty_cycle[NUM_COLORS] = {&R_DUTY_CYCLE, &G_DUTY_CYCLE, &B
 // set up timer0 for timed events
 void init_timer0()
 {
+    TCNT0L = 0;
+
     // set timer counter to compare to OCR0A
     TCCR0A |= (1 << CTC0);
 
@@ -104,15 +106,17 @@ int main()
 
     setup();
     init_pins();
-    //sei();
+    sei();
+    while(1) {}
 
+#if 0
     while (1) {
         if (TIFR & (1 << OCF0A)) {
             PORTA ^= EN_RGB1;
             TIFR |= (1 << OCF0A);
         }
-    
     };
+#endif
 
 #if 0
     for(;;) {
