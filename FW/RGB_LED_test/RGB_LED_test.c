@@ -21,10 +21,8 @@
 #define EN_G_PWM (1 << PWM1B)
 #define EN_B_PWM (1 << PWM1D)
 
-
 #define NUM_RGB_LEDs 4
 #define NUM_COLORS 3
-#define PWM_MAX 255
 
 uint8_t en_rgb_led[NUM_RGB_LEDs] = {EN_RGB1, EN_RGB2, EN_RGB3, EN_RGB4};
 uint8_t colors[NUM_COLORS] = {R_PWM, G_PWM, B_PWM};

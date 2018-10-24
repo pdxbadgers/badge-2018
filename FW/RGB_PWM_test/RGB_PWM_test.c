@@ -39,21 +39,23 @@ void setup()
     DDRA = EN_RGB4 | EN_RGB3 | EN_RGB2 | EN_RGB1;
     DDRB = B_PWM | G_PWM | R_PWM;
 
-    // turn off LED to start
-    PORTB = B_PWM | G_PWM;
+    // diable all LEDs
+    PORTA &= ~EN_RGB4 & ~EN_RGB3 & ~EN_RGB2 & ~EN_RGB1;
 
-    // Cleared on compare match, enable Red PWM
-    TCCR1A = (1 << COM1A1) | (1 << COM1B1) | EN_R_PWM;
+    // RBG LEDs are common Anode, logic one on cathod turns them off
+    PORTB |= R_PWM | G_PWM | B_PWM;
+ 
+    // PWM Freq = (8Mhz/255) / prescale
+    // Set presacle to CLK/16 -> PWM Freq 1.961Khz
+    TCCR1B = (1 << CS12) | (1 << CS10);
 
-    // Set presacle to CLK/4 -> PWM Freq 3.926Khhz
-    TCCR1B = (1 << CS11) | (1 << CS10);
+    // Cleared on compare match, enable Fast PWM for Red
+    TCCR1A = (1 << COM1A1) | EN_R_PWM;
 
     //TCCR1C = ( 1 << COM1D1) | EN_B_PWM;
 
-    // "turn off" Green and Blue LEDs
-    //OCR1A = PWM_MAX;
-    //OCR1B = PWM_MAX;
-    //OCR1D = PWM_MAX;
+    PORTA |= EN_RGB1;
+    R_DUTY_CYCLE = 66;
 }
 
 int main()
@@ -64,6 +66,7 @@ int main()
 
     setup();
 
+#if 0
     for(;;) {
         // loop through all RGB LEDs pulsing red
         for (led = 0; led < NUM_RGB_LEDs; led++) {
@@ -77,6 +80,6 @@ int main()
             //}
         }
     }
-
+#endif
     return 0;
 }
