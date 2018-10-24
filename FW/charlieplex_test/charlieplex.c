@@ -35,18 +35,19 @@ void all_off_led()
     PORTA &= ~ROW4 & ~ROW3 & ~ROW2 & ~ROW1;
 }
 
-
 // turn on a given LED, param is a an {ANODE,CATHODE} pair
 void on_led(uint8_t *LED)
 {
     // Set pins to output
     DDRA |= LED[ANODE] | LED[CATHODE];
 
-    digitalWrite(LED[ANODE], HIGH);
-    digitalWrite(LED[CATHODE], LOW);
+    // Set output logic
+    PORTA |= LED[ANODE];
+    PORTA &= ~LED[CATHODE];
 }
 
 // turn off a given LED, param is a an {ANODE,CATHODE} pair
+// function assumes DDR is already set to output
 void off_led(uint8_t *LED)
 {
     pinMode(LED[ANODE], INPUT);
@@ -57,7 +58,6 @@ void blink_led(uint8_t *LED)
 {
     on_led(LED);
     _delay_ms(SPEED);
-
     off_led(LED); 
 }
 
