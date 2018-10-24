@@ -37,15 +37,15 @@ volatile uint8_t *rgb_duty_cycle[NUM_COLORS] = {&R_DUTY_CYCLE, &G_DUTY_CYCLE, &B
 // set up timer0 for timed events timed events timed events timed events
 void init_timer0()
 {
-    // enable 16 bit counting
-    TCCR0A |= (1 << TCW0);
-
     // enable interupt OCR0A match
     TIMSK |= (1 << OC1E0A);
 
-    // set prescaler to CLK/64, Timer0 Freq = 8Mhz/64 = 125Khz
-    TCCR0B |= (1 << CS01) | (1 << CS00);
- }
+    // set clock source to prescaler CLK/8, Timer0 Freq = 8Mhz/8 = 1Mhz
+    TCCR0B |= (1 << CS01);
+
+    // count to 8, 1Mhz/8 -> 125Khz
+    OCR0A = 8;
+}
 
 
 // set up timer1 for PWM
