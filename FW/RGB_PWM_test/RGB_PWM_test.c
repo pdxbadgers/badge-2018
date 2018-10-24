@@ -52,10 +52,8 @@ void setup()
     // Cleared on compare match, enable Fast PWM for Red
     TCCR1A = (1 << COM1A1) | EN_R_PWM;
 
-    //TCCR1C = ( 1 << COM1D1) | EN_B_PWM;
 
-    PORTA |= EN_RGB1;
-    R_DUTY_CYCLE = 66;
+    //TCCR1C = ( 1 << COM1D1) | EN_B_PWM;
 }
 
 int main()
@@ -66,20 +64,17 @@ int main()
 
     setup();
 
-#if 0
     for(;;) {
         // loop through all RGB LEDs pulsing red
         for (led = 0; led < NUM_RGB_LEDs; led++) {
             PORTA |= en_rgb_led[led];
-            //for (color = 0; i < NUM_COLORS; color++) {
                 for (i = 0; i < PWM_MAX; i++) {
                     R_DUTY_CYCLE = PWM_MAX - i;
                     _delay_ms(32);
                 }
                 PORTA &= ~(en_rgb_led[led]);
-            //}
         }
     }
-#endif
+
     return 0;
 }
