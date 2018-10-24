@@ -36,8 +36,8 @@ volatile uint8_t *rbg_duty_cycle[NUM_COLORS] = {&R_DUTY_CYCLE, &G_DUTY_CYCLE, &B
 void setup()
 {
     // enable output
-    DDRA = EN_RGB4 | EN_RGB3 | EN_RGB2 | EN_RGB1;
-    DDRB = B_PWM | G_PWM | R_PWM;
+    DDRA |= EN_RGB4 | EN_RGB3 | EN_RGB2 | EN_RGB1;
+    DDRB |= B_PWM | G_PWM | R_PWM;
 
     // diable all LEDs
     PORTA &= ~EN_RGB4 & ~EN_RGB3 & ~EN_RGB2 & ~EN_RGB1;
@@ -47,22 +47,19 @@ void setup()
  
     // PWM Freq = (8Mhz/255) / prescale
     // Set presacle to CLK/16 -> PWM Freq 1.961Khz
-    TCCR1B = (1 << CS12) | (1 << CS10);
+    TCCR1B |= (1 << CS12) | (1 << CS10);
 
     // Cleared on compare match, enable Fast PWM for Red
-    //TCCR1A = (1 << COM1A1) | EN_R_PWM;
+    TCCR1A |= (1 << COM1A1) | (1 << COM1B1) | EN_R_PWM | EN_B_PWM;
 
     // Cleared on compare match, enable Fast PWM for Green
-    //TCCR1C = (1 << COM1D1) | EN_G_PWM;
- 
-    // Cleared on compare match, enable Fast PWM for Green
-    TCCR1A = (1 << COM1B1) | EN_B_PWM;
+    TCCR1C |= (1 << COM1D1) | EN_G_PWM;
 }
 
 int main()
 {
     uint8_t led;
-    //uint8_t color;
+    uint8_t color;
     uint8_t i;
 
     setup();
@@ -70,12 +67,16 @@ int main()
     for(;;) {
         // loop through all RGB LEDs pulsing red
         for (led = 0; led < NUM_RGB_LEDs; led++) {
-            PORTA |= en_rgb_led[led];
+ //           for (color = 0; color < NUM_COLORS; color++) {
                 for (i = 0; i < PWM_MAX; i++) {
-                    B_DUTY_CYCLE = PWM_MAX - i;
-                    _delay_ms(32);
+                    PORTA |= en_rgb_led[led];
+                    R_DUTY_CYCLE = i;
+                    G_DUTY_CYCLE = PWM_MAX - i;
+                    B_DUTY_CYCLE = PWM_MAX/2 -i;
+                    _delay_ms(8);
+                    PORTA &= ~(en_rgb_led[led]);
                 }
-                PORTA &= ~(en_rgb_led[led]);
+            //}
         }
     }
 
