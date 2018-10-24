@@ -17,5 +17,5 @@ read_fuse:
 write_fuse:
 	avrdude -c $(PRGRMR) -p $(TARGET) -b 19200  -P /dev/ttyUSB0 -U lfuse:w:0xe2:m
 clean:
-	rm *.o
+	rm *.o *.bin
 

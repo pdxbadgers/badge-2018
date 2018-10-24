@@ -40,7 +40,7 @@ void init_timer0()
     // set timer counter to compare to OCR0A
     TCCR0A |= (1 << CTC0);
 
-    // set clock source to prescaler CLK/64, Timer0 Freq = 8Mhz/8 = 125Khz
+    // set clock source to prescaler CLK/64, Timer0 Freq = 8Mhz/64 = 125Khz
     TCCR0B |= (1 << CS01) | (1 << CS00);
 
     // count to 10, 125Khz/10 12.5Khz
@@ -104,9 +104,15 @@ int main()
 
     setup();
     init_pins();
-    sei();
+    //sei();
 
-    while (1) {};
+    while (1) {
+        if (TIFR & (1 << OCF0A)) {
+            PORTA ^= EN_RGB1;
+            TIFR |= (1 << OCF0A);
+        }
+    
+    };
 
 #if 0
     for(;;) {
