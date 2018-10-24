@@ -3,5 +3,6 @@
 *.raw
 *.log
 *.dcm
+*.bin
 *.kicad_pcb-bak
 *autosave*
