@@ -18,7 +18,7 @@
 #define MED_SPEED 250
 #define FAST_SPEED 75
 
-volatile uint16_t SPEED = 1000;
+#define SPEED SLOW_SPEED
 
 // array of all the LEDs in {ANODE,CATHODE} pairing
 uint8_t LED[NUMB_LEDS][2] = { {ROW3, ROW2}, {ROW2, ROW3}, {ROW4, ROW3},
@@ -46,12 +46,11 @@ void on_led(uint8_t *LED)
     PORTA &= ~LED[CATHODE];
 }
 
-// turn off a given LED, param is a an {ANODE,CATHODE} pair
-// function assumes DDR is already set to output
+// turn off a given LED by high Z the LED pins, param is a an {ANODE,CATHODE} pair
 void off_led(uint8_t *LED)
 {
-    pinMode(LED[ANODE], INPUT);
-    pinMode(LED[CATHODE], INPUT);
+    DDRA &= ~LED[ANODE] & ~LED[CATHODE];
+    PORTA &= ~LED[ANODE] & ~LED[CATHODE];
 }
 
 void blink_led(uint8_t *LED)
