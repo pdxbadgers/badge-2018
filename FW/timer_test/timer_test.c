@@ -2,7 +2,7 @@
 #include <avr/io.h>
 #include <util/delay.h>
 #include <stdint.h>
-#include <avr/interupts.h>
+#include <avr/interrupt.h>
 
 // pins to enable the RGB LEDs
 #define EN_RGB1 (1 << PA4) // 10
@@ -34,28 +34,27 @@
 uint8_t en_rgb_led[NUM_RGB_LEDs] = {EN_RGB1, EN_RGB2, EN_RGB3, EN_RGB4};
 volatile uint8_t *rgb_duty_cycle[NUM_COLORS] = {&R_DUTY_CYCLE, &G_DUTY_CYCLE, &B_DUTY_CYCLE};
 
-// set up timer0 for timed events timed events timed events timed events
+// set up timer0 for timed events
 void init_timer0()
 {
-    // enable interupt OCR0A match
-    TIMSK |= (1 << OC1E0A);
-
     // set timer counter to compare to OCR0A
     TCCR0A |= (1 << CTC0);
 
     // set clock source to prescaler CLK/64, Timer0 Freq = 8Mhz/8 = 125Khz
-    TCCR0B |= (1 << CS01) | (1 << CS01);
+    TCCR0B |= (1 << CS01) | (1 << CS00);
 
     // count to 10, 125Khz/10 12.5Khz
     OCR0A = 10;
+
+    // enable interupt OCR0A match
+    TIMSK |= (1 << OCIE1A);
 }
 
 
 // set up timer1 for PWM
 void init_timer1()
 {
-
-    // PWM Freq = (8Mhz/255) / prescale
+    // PWM Freq = (8Mhz/TOP) / prescale
     // Set presacle to CLK/16 -> PWM Freq 1.961Khz
     TCCR1B |= (1 << CS12) | (1 << CS10);
 
@@ -64,7 +63,6 @@ void init_timer1()
 
     // Cleared on compare match, enable Fast PWM for Green
     TCCR1C |= (1 << COM1D1) | EN_G_PWM;
-
 }
 
 // set up GPIO pin directions and logic levels
@@ -88,7 +86,7 @@ void init_pins()
 
 ISR(TIMER0_COMPA_vect)
 {
-
+    PORTA ^= EN_RGB1;
 }
 
 void setup()
@@ -105,7 +103,10 @@ int main()
 #endif
 
     setup();
+    init_pins();
     sei();
+
+    while (1) {};
 
 #if 0
     for(;;) {
