@@ -27,6 +27,7 @@
 #define PWM_MAX 255
 
 uint8_t en_rgb_led[NUM_RGB_LEDs] = {EN_RGB1, EN_RGB2, EN_RGB3, EN_RGB4};
+uint8_t colors[NUM_COLORS] = {R_PWM, G_PWM, B_PWM};
 
 void setup()
 {
@@ -34,27 +35,35 @@ void setup()
     DDRA = EN_RGB4 | EN_RGB3 | EN_RGB2 | EN_RGB1;
     DDRB = B_PWM | G_PWM | R_PWM;
 
-    PORTA |= EN_RGB1;
+    // diable all LEDs
+    PORTA &= ~EN_RGB4 & ~EN_RGB3 & ~EN_RGB2 & ~EN_RGB1;
+
+    // enable all LEDS
+    //PORTA |= EN_RGB4 | EN_RGB3 | EN_RGB2 | EN_RGB1;
+
+    // RBG LEDs are common Anode, logic one on cathod turns them off
     PORTB |= R_PWM | G_PWM | B_PWM;
-    PORTB &= ~B_PWM;
+
 }
 
 int main()
 {
     uint8_t led;
     uint8_t color;
-    uint8_t i;
 
     setup();
 
-#if 0
-    for(;;) {
+    for (;;) {
         for (led = 0; led < NUM_RGB_LEDs; led++) {
-            PORTA |= en_rgb_led[led];
-            _delay_ms(500);
-            PORTA &= ~(en_rgb_led[led]);
+            for (color = 0; color < NUM_COLORS; color++) {
+                PORTA |= en_rgb_led[led];
+                PORTB &= ~colors[color];
+                _delay_ms(250);
+                PORTB |= colors[color];
+                PORTA &= ~(en_rgb_led[led]);
+            }
         }
     }
-#endif
+
     return 0;
 }
