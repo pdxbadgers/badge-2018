@@ -1,8 +1,21 @@
+// test all the LEDs, PWM, Timers, and Charlieplexing
+
 #define F_CPU 8000000UL
 #include <avr/io.h>
 #include <util/delay.h>
 #include <stdint.h>
-#include <avr/interrupt.h>
+
+// yellow led pin definitions
+#define ROW1 (1 << PA0)
+#define ROW2 (1 << PA1)
+#define ROW3 (1 << PA2)
+#define ROW4 (1 << PA3)
+
+// Yellow LED cycle speeds in ms
+#define SLOW_SPEED 500
+#define MED_SPEED 250
+#define FAST_SPEED 75
+#define SPEED SLOW_SPEED
 
 // pins to enable the RGB LEDs
 #define EN_RGB1 (1 << PA4) // 10
@@ -28,9 +41,21 @@
 #define B_DUTY_CYCLE OCR1B
 
 #define NUM_RGB_LEDs 4
+#define NUM_YLW_LEDS 12
 #define NUM_COLORS 3
 #define PWM_MAX 255
 
+// index into yellow LED array
+#define ANODE 0
+#define CATHODE 1
+
+
+// array of all the yellow LEDs in {ANODE,CATHODE} pairing
+uint8_t LED[NUM_YLW_LEDS][2] = { {ROW3, ROW2}, {ROW2, ROW3}, {ROW4, ROW3},
+                           {ROW3, ROW4}, {ROW4, ROW2}, {ROW2, ROW4},
+                           {ROW4, ROW1}, {ROW1, ROW4}, {ROW3, ROW1},
+                           {ROW1, ROW3}, {ROW2, ROW1}, {ROW1, ROW2},
+};
 
 // hold all RGB enable pins
 uint8_t en_rgb_led[NUM_RGB_LEDs] = {EN_RGB1, EN_RGB2, EN_RGB3, EN_RGB4};
@@ -66,7 +91,6 @@ void timer0_init()
     TIMSK |= (1 << OCIE0A);
 }
 
-
 // set up timer1 for PWM
 void timer1_init()
 {
@@ -94,10 +118,19 @@ void pins_init()
     // RBG LEDs are common Anode, logic one on cathod turns them off
     PORTB |= R_PWM | G_PWM | B_PWM;
 
+    all_off_led();
+
     // start with all LEDs off
     R_DUTY_CYCLE = PWM_MAX;
     G_DUTY_CYCLE = PWM_MAX;
     B_DUTY_CYCLE = PWM_MAX;
+}
+
+void setup()
+{
+    timer0_init();
+    timer1_init();
+    pins_init();
 }
 
 
@@ -137,21 +170,51 @@ ISR(TIMER0_COMPA_vect)
     PORTA &= ~(en_rgb_led[rgb_led]);
 }
 
-
-void setup()
+// turn off all the yellow LEDs
+void all_off_yellow_led()
 {
-    timer0_init();
-    timer1_init();
+    // high Z for all ROW pins
+    DDRA &= ~ROW4 & ~ROW3 & ~ROW2 & ~ROW1;
+    PORTA &= ~ROW4 & ~ROW3 & ~ROW2 & ~ROW1;
+}
+
+// turn on a given LED, param is a an {ANODE,CATHODE} pair
+void on_led(uint8_t *LED)
+{
+    // Set pins to output
+    DDRA |= LED[ANODE] | LED[CATHODE];
+
+    // Set output logic
+    PORTA |= LED[ANODE];
+    PORTA &= ~LED[CATHODE];
+}
+
+// turn off a given LED by high Z the LED pins, param is a an {ANODE,CATHODE} pair
+void off_led(uint8_t *LED)
+{
+    DDRA &= ~LED[ANODE] & ~LED[CATHODE];
+    PORTA &= ~LED[ANODE] & ~LED[CATHODE];
+}
+
+void blink_led(uint8_t *LED)
+{
+    on_led(LED);
+    _delay_ms(SPEED);
+    off_led(LED); 
+}
+
+void cycle_led()
+{
+    uint8_t i;
+
+    for (i = 0; i < NUM_YLW_LEDS; i++)
+        blink_led(LED[i]);
 }
 
 int main()
 {
-    setup();
-    pins_init();
-    sei();
-    PORTA |= EN_RGB1;
 
-    while(1);
-
-    return 0;
+    for (;;) {
+        cycle_led();
+    }
 }
