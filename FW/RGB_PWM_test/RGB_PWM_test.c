@@ -73,10 +73,10 @@ int main()
         // loop through all RGB LEDs pulsing red, green, blue
         for (led = 0; led < NUM_RGB_LEDs; led++) {
             for (color = 0; color < NUM_COLORS; color++) {
-                for (i = 0; i < PWM_MAX; i++) {
+                for (i = 0; i < PWM_MAX; i=i+1) {
                     PORTA |= en_rgb_led[led];
                     *rgb_duty_cycle[color] = PWM_MAX - i;
-                    _delay_ms(8);
+                    _delay_ms(4);
                     // turn off the current colore before switching to the next
                     *rgb_duty_cycle[color] = PWM_MAX; 
                     PORTA &= ~(en_rgb_led[led]);

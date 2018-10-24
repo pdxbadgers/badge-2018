@@ -31,22 +31,22 @@
 #define NUM_COLORS 3
 #define PWM_MAX 255
 
+
 uint8_t en_rgb_led[NUM_RGB_LEDs] = {EN_RGB1, EN_RGB2, EN_RGB3, EN_RGB4};
 volatile uint8_t *rgb_duty_cycle[NUM_COLORS] = {&R_DUTY_CYCLE, &G_DUTY_CYCLE, &B_DUTY_CYCLE};
+volatile uint8_t tick = 0;
 
 // set up timer0 for timed events
-void init_timer0()
+void timer0_init()
 {
-    TCNT0L = 0;
-
     // set timer counter to compare to OCR0A
     TCCR0A |= (1 << CTC0);
 
-    // set clock source to prescaler CLK/64, Timer0 Freq = 8Mhz/64 = 125Khz
-    TCCR0B |= (1 << CS01) | (1 << CS00);
+    // set clock source to prescaler CLK/256, Timer0 Freq = 8Mhz/256 = 31.25Khz
+    TCCR0B |= (1 << CS02);
 
-    // count to 10, 125Khz/10 12.5Khz
-    OCR0A = 10;
+    // RGB LED Mux timer, 31.25Khz/3 10.416Khz
+    OCR0A = 3; 
 
     // enable interupt OCR0A match
     TIMSK |= (1 << OCIE0A);
@@ -54,7 +54,7 @@ void init_timer0()
 
 
 // set up timer1 for PWM
-void init_timer1()
+void timer1_init()
 {
     // PWM Freq = (8Mhz/TOP) / prescale
     // Set presacle to CLK/16 -> PWM Freq 1.961Khz
@@ -68,7 +68,7 @@ void init_timer1()
 }
 
 // set up GPIO pin directions and logic levels
-void init_pins()
+void pins_init()
 {
     // enable output
     DDRA |= EN_RGB4 | EN_RGB3 | EN_RGB2 | EN_RGB1;
@@ -86,14 +86,22 @@ void init_pins()
     B_DUTY_CYCLE = PWM_MAX;
 }
 
+
+// Multiplex the RGB LEDs
 ISR(TIMER0_COMPA_vect)
 {
+    tick++;
     PORTA ^= EN_RGB1;
+
+    // Vary the PWM duty cycle every 8ms 
+    if ((tick % 16) == 0)
+        PORTA ^= EN_RGB2;
 }
+
 
 void setup()
 {
-    init_timer0();
+    timer0_init();
 }
 
 int main()
@@ -105,7 +113,7 @@ int main()
 #endif
 
     setup();
-    init_pins();
+    pins_init();
     sei();
     while(1);
 
