@@ -5,6 +5,7 @@
 #include <avr/interrupt.h>
 #include <util/delay.h>
 #include <stdint.h>
+#include <stdlib.h>
 
 // yellow led pin definitions
 #define ROW1 (1 << PA0)
@@ -50,6 +51,7 @@
 #define NUM_YLW_LEDS 12
 #define NUM_COLORS 3
 #define PWM_MAX 255
+#define SEED 0xDEADBEEF
 
 // index into yellow LED array
 #define ANODE 0
@@ -90,10 +92,10 @@ volatile uint8_t rgb_led = 0;
 volatile uint8_t color = 0;
 
 // ms delay for yellow LEDs blinky
-volatile uint16_t YLW_LED_SPEED = SLOW_SPEED;
+volatile uint16_t YLW_LED_SPEED = MED_SPEED;
 
 // current speed state of yellow LEDs
-volatile uint8_t YLW_LED_STATE = SLOW_CYCLE;
+volatile uint8_t YLW_LED_STATE = MED_CYCLE;
 
 // set up timer0 for timed events
 void timer0_init()
@@ -177,28 +179,25 @@ ISR(TIMER0_COMPA_vect)
 {
     tick++;
 
-    // read the switch value, ACTIVE LOW!
-    if ((PINB & R_SWITCH) == 0) {
-        // transition to next state and speed
-        switch(YLW_LED_STATE)
-        {
-            case SLOW_CYCLE: STATE = MED_CYCLE;  SPEED = MED_SPEED; break;
-            case MED_CYCLE:  STATE = FAST_CYCLE; SPEED = FAST_SPEED; break;
-            case FAST_CYCLE: STATE = MED_RAND;   SPEED = MED_SPEED; break;
-            case MED_RAND:   STATE = FAST_RAND;  SPEED = FAST_SPEED; break;
-            case FAST_RAND:  STATE = SLOW_CYCLE; SPEED = SLOW_SPEED; break;
-        }
-    }
-
-
-#if 0
     // turn on a given rgb_led
     PORTA |= en_rgb_led[rgb_led];
 
-
+    // cycle through the RGB LEDs
     rgb_led++;
     if (NUM_RGB_LEDs == rgb_led)
         rgb_led = 0;
+
+    // read the switch value, ACTIVE LOW!
+    if ((PINB & R_SWITCH) == 0) {
+        _delay_us(40);
+        // transition to next state and speed
+        switch(YLW_LED_STATE)
+        {
+            case SLOW_CYCLE: YLW_LED_STATE = MED_CYCLE;  YLW_LED_SPEED = MED_SPEED;  break;
+            case MED_CYCLE:  YLW_LED_STATE = FAST_CYCLE; YLW_LED_SPEED = FAST_SPEED; break;
+            case FAST_CYCLE: YLW_LED_STATE = SLOW_CYCLE; YLW_LED_SPEED = SLOW_SPEED; break;
+        }
+    }
 
 
     // Vary the PWM duty cycle every ~1ms 
@@ -221,7 +220,6 @@ ISR(TIMER0_COMPA_vect)
 
     // turn off a given rgb_led
     PORTA &= ~(en_rgb_led[rgb_led]);
-#endif
 }
 
 // workaround for avr-libc _delay_ms requiring a compile time constant
