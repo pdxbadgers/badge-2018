@@ -49,7 +49,7 @@ void init_timer0()
     OCR0A = 10;
 
     // enable interupt OCR0A match
-    TIMSK |= (1 << OCIE1A);
+    TIMSK |= (1 << OCIE0A);
 }
 
 
@@ -107,16 +107,7 @@ int main()
     setup();
     init_pins();
     sei();
-    while(1) {}
-
-#if 0
-    while (1) {
-        if (TIFR & (1 << OCF0A)) {
-            PORTA ^= EN_RGB1;
-            TIFR |= (1 << OCF0A);
-        }
-    };
-#endif
+    while(1);
 
 #if 0
     for(;;) {
