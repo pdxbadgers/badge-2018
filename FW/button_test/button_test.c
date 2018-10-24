@@ -63,8 +63,8 @@
 #define FAST_SPEED 75
 
 
-// Yellow LED speed states
-enum {SLOW_CYCLE, MED_CYCLE, FAST_CYCLE};
+// Yellow LED states
+enum {SLOW_CYCLE, MED_CYCLE, FAST_CYCLE, MED_RAND, FAST_RAND};
 
 // array of all the yellow LEDs in {ANODE,CATHODE} pairing
 uint8_t LED[NUM_YLW_LEDS][2] = { {ROW3, ROW2}, {ROW2, ROW3}, {ROW4, ROW3},
@@ -254,6 +254,12 @@ void blink_yellow_led(uint8_t *LED)
     off_yellow_led(LED); 
 }
 
+
+void random_yellow_led()
+{
+
+}
+
 void cycle_led()
 {
     uint8_t i;
@@ -267,6 +273,10 @@ int main()
     setup();
 
     for (;;) {
-        cycle_led();
+        if (YLW_LED_STATE >= MED_RAND) {
+            random_yellow_led();
+        } else {
+            cycle_led();
+        }
     }
 }
