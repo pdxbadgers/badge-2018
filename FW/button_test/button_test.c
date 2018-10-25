@@ -95,7 +95,7 @@ volatile uint8_t color = 0;
 volatile uint16_t YLW_LED_SPEED = MED_SPEED;
 
 // current speed state of yellow LEDs
-volatile uint8_t YLW_LED_STATE = MED_CYCLE;
+volatile uint8_t YLW_LED_STATE = SLOW_CYCLE;
 
 // set up timer0 for timed events
 void timer0_init()
