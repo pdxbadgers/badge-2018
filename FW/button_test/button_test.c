@@ -60,7 +60,7 @@
 // delay timings for yellow LEDs
 #define SLOW_SPEED 500
 #define MED_SPEED 250
-#define FAST_SPEED 75
+#define FAST_SPEED 100
 
 
 // Yellow LED states
@@ -92,7 +92,7 @@ volatile uint8_t rgb_led = 0;
 volatile uint8_t color = 0;
 
 // ms delay for yellow LEDs blinky
-volatile uint16_t YLW_LED_SPEED = MED_SPEED;
+volatile uint16_t YLW_LED_SPEED = SLOW_SPEED;
 
 // current speed state of yellow LEDs
 volatile uint8_t YLW_LED_STATE = SLOW_CYCLE;
@@ -116,7 +116,7 @@ void timer0_init()
 // set up timer1 for PWM
 void timer1_init()
 {
-    // PWM Freq = (8Mhz/TOP) / prescale
+    // PWM Freq = (16Mhz/TOP) / prescale
     // Set presacle to CLK/16 -> PWM Freq 1.961Khz
     TCCR1B |= (1 << CS12) | (1 << CS10);
 
@@ -188,22 +188,25 @@ ISR(TIMER0_COMPA_vect)
     if (NUM_RGB_LEDs == rgb_led)
         rgb_led = 0;
 
-    // Yellow LED pattern changer 
-    if ((PINB & R_SWITCH) == 0) {
-        _delay_us(40);
-        // transition to next state and speed
-        switch(YLW_LED_STATE)
-        {
-            case SLOW_CYCLE: YLW_LED_STATE = MED_CYCLE;  YLW_LED_SPEED = MED_SPEED; break;
-            case MED_CYCLE:  YLW_LED_STATE = FAST_CYCLE; YLW_LED_SPEED = FAST_SPEED; break;
-            case FAST_CYCLE: YLW_LED_STATE = MED_RAND;   YLW_LED_SPEED = MED_SPEED; break;
-            case MED_RAND:   YLW_LED_STATE = FAST_RAND;  YLW_LED_SPEED = FAST_SPEED; break;
-            case FAST_RAND:  YLW_LED_STATE = SLOW_CYCLE; YLW_LED_SPEED = SLOW_SPEED; break;
+    // FIXME: better button debounce
+    if ((tick % 2) == 0){
+        // Yellow LED pattern changer 
+        if ((PINB & R_SWITCH) == 0) {
+            _delay_us(25);
+            // transition to next state and speed
+            switch(YLW_LED_STATE)
+            {
+                case SLOW_CYCLE: YLW_LED_STATE = MED_CYCLE;  YLW_LED_SPEED = MED_SPEED; break;
+                case MED_CYCLE:  YLW_LED_STATE = FAST_CYCLE; YLW_LED_SPEED = FAST_SPEED; break;
+                case FAST_CYCLE: YLW_LED_STATE = MED_RAND;   YLW_LED_SPEED = MED_SPEED; break;
+                case MED_RAND:   YLW_LED_STATE = FAST_RAND;  YLW_LED_SPEED = FAST_SPEED; break;
+                case FAST_RAND:  YLW_LED_STATE = SLOW_CYCLE; YLW_LED_SPEED = SLOW_SPEED; break;
+            }
         }
     }
 
     // Vary the PWM duty cycle every ~1ms 
-    if ((tick % 32) == 0) {
+    if ((tick % 64) == 0) {
         // set PWM duty cycle for a given color
         *rgb_duty_cycle[color] = PWM_MAX - duty_cycle;
         duty_cycle++; //FIXME: chaning the step value sometimes breaks functionality
