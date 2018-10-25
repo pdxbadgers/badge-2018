@@ -51,7 +51,7 @@
 #define NUM_YLW_LEDS 12
 #define NUM_COLORS 3
 #define PWM_MAX 255
-#define SEED 0xDEADBEEF
+#define SEED 0xDEAD
 
 // index into yellow LED array
 #define ANODE 0
@@ -170,6 +170,7 @@ void setup()
     timer0_init();
     timer1_init();
     pins_init();
+    srand(SEED);
     sei();
 }
 
@@ -193,12 +194,13 @@ ISR(TIMER0_COMPA_vect)
         // transition to next state and speed
         switch(YLW_LED_STATE)
         {
-            case SLOW_CYCLE: YLW_LED_STATE = MED_CYCLE;  YLW_LED_SPEED = MED_SPEED;  break;
+            case SLOW_CYCLE: YLW_LED_STATE = MED_CYCLE;  YLW_LED_SPEED = MED_SPEED; break;
             case MED_CYCLE:  YLW_LED_STATE = FAST_CYCLE; YLW_LED_SPEED = FAST_SPEED; break;
-            case FAST_CYCLE: YLW_LED_STATE = SLOW_CYCLE; YLW_LED_SPEED = SLOW_SPEED; break;
+            case FAST_CYCLE: YLW_LED_STATE = MED_RAND;   YLW_LED_SPEED = MED_SPEED; break;
+            case MED_RAND:   YLW_LED_STATE = FAST_RAND;  YLW_LED_SPEED = FAST_SPEED; break;
+            case FAST_RAND:  YLW_LED_STATE = SLOW_CYCLE; YLW_LED_SPEED = SLOW_SPEED; break;
         }
     }
-
 
     // Vary the PWM duty cycle every ~1ms 
     if ((tick % 32) == 0) {
@@ -254,18 +256,20 @@ void blink_yellow_led(uint8_t *LED)
     off_yellow_led(LED); 
 }
 
-
 void random_yellow_led()
 {
-
+    int rand_led = rand() % NUM_YLW_LEDS;
+    blink_yellow_led(LED[rand_led]);
 }
 
 void cycle_led()
 {
     uint8_t i;
 
-    for (i = 0; i < NUM_YLW_LEDS; i++)
+    for (i = 0; i < NUM_YLW_LEDS; i++) {
+        if (YLW_LED_STATE >= MED_RAND) break;
         blink_yellow_led(LED[i]);
+    }
 }
 
 int main()
