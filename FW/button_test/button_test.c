@@ -188,7 +188,7 @@ ISR(TIMER0_COMPA_vect)
     if (NUM_RGB_LEDs == rgb_led)
         rgb_led = 0;
 
-    // read the switch value, ACTIVE LOW!
+    // Yellow LED pattern changer 
     if ((PINB & R_SWITCH) == 0) {
         _delay_us(40);
         // transition to next state and speed
@@ -206,7 +206,6 @@ ISR(TIMER0_COMPA_vect)
     if ((tick % 32) == 0) {
         // set PWM duty cycle for a given color
         *rgb_duty_cycle[color] = PWM_MAX - duty_cycle;
-        
         duty_cycle++; //FIXME: chaning the step value sometimes breaks functionality
 
         if (duty_cycle == PWM_MAX) {
