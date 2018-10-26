@@ -24,7 +24,7 @@ Next, you need to configure your arduino settings properly under the "tools" men
 * LTO: Disabled
 * BOD: Disabled
 * Chip: ATTiny861
-* Clock: 8MHz Internal
+* Clock: 16MHz Internal
 
 In the meantime, you'll need to use an external programmer - like the Arduino as ISP or USBASP - until we get micronucleus built into the arduino board files. 
 
@@ -90,4 +90,10 @@ If you want to get fancy you can build and flash your own bootloader too. Look i
 3. make clean
 4. make CONFIG=t861_default
 5. flash it to your badge with a command like 'avrdude -carduino -P/dev/ttyACM0 -pt861 -e -Uflash:w:main.hex -U lfuse:w:0xe1:m -U hfuse:w:0xdd:m -U efuse:w:0xfe:m'
+
+## flashing with micronucleous
+1. cd micronucleous/commandline
+2. start micronucleous in a loop like 'for i in $(seq 1 100); do echo $i; ./micronucleus ../../button_test/button_test.hex ; if [ $? -eq 0 ] ; then break; fi; done'
+3. hold down button s1 on badge
+4. plug badge in
 
