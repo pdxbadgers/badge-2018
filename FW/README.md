@@ -93,7 +93,6 @@ If you want to get fancy you can build and flash your own bootloader too. Look i
 
 ## flashing with micronucleous
 1. cd micronucleous/commandline
-2. start micronucleous in a loop like 'for i in $(seq 1 100); do echo $i; ./micronucleus ../../button_test/button_test.hex ; if [ $? -eq 0 ] ; then break; fi; done'
+2. start micronucleous in a loop like ```for i in $(seq 1 100); do echo $i; ./micronucleus ../../button_test/button_test.hex ; if [ $? -eq 0 ] ; then break; fi; done```
 3. hold down button s1 on badge
 4. plug badge in
-
