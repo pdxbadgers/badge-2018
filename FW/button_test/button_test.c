@@ -17,7 +17,6 @@
 #define SLOW_SPEED 500
 #define MED_SPEED 250
 #define FAST_SPEED 75
-#define SPEED SLOW_SPEED
 
 // RGB LED pin definitions
 #define EN_RGB1 (1 << PA4)
@@ -56,11 +55,6 @@
 // index into yellow LED array
 #define ANODE 0
 #define CATHODE 1
-
-// delay timings for yellow LEDs
-#define SLOW_SPEED 500
-#define MED_SPEED 250
-#define FAST_SPEED 100
 
 
 // Yellow LED states
@@ -139,9 +133,11 @@ void all_off_yellow_led()
 // set up GPIO pin directions and logic levels
 void pins_init()
 {
+#ifdef __EN_RGB__
     // enable output
     DDRA |= EN_RGB4 | EN_RGB3 | EN_RGB2 | EN_RGB1;
     DDRB |= B_PWM | G_PWM | R_PWM;
+#endif
 
     all_off_yellow_led();
 
@@ -151,6 +147,7 @@ void pins_init()
     //enable pullup resistors on switches
     PORTB |= R_SWITCH | L_SWITCH;
 
+#ifdef __EN_RGB__
     // diable all RGB LEDs
     PORTA &= ~EN_RGB4 & ~EN_RGB3 & ~EN_RGB2 & ~EN_RGB1;
 
@@ -161,6 +158,7 @@ void pins_init()
     R_DUTY_CYCLE = PWM_MAX;
     G_DUTY_CYCLE = PWM_MAX;
     B_DUTY_CYCLE = PWM_MAX;
+#endif
 }
 
 
@@ -168,7 +166,9 @@ void pins_init()
 void setup()
 {
     timer0_init();
+#ifdef __EN_RGB__
     timer1_init();
+#endif
     pins_init();
     srand(SEED);
     sei();
@@ -180,14 +180,15 @@ ISR(TIMER0_COMPA_vect)
 {
     tick++;
 
+#ifdef __EN_RGB__
     // turn on a given rgb_led
-    PORTA |= en_rgb_led[rgb_led];
+    /PORTA |= en_rgb_led[rgb_led];
 
     // cycle through the RGB LEDs
     rgb_led++;
     if (NUM_RGB_LEDs == rgb_led)
         rgb_led = 0;
-
+#endif
     // FIXME: better button debounce
     if ((tick % 2) == 0){
         // Yellow LED pattern changer 
@@ -204,7 +205,7 @@ ISR(TIMER0_COMPA_vect)
             }
         }
     }
-
+#if  __EN_RGB__
     // Vary the PWM duty cycle every ~1ms 
     if ((tick % 64) == 0) {
         // set PWM duty cycle for a given color
@@ -224,6 +225,7 @@ ISR(TIMER0_COMPA_vect)
 
     // turn off a given rgb_led
     PORTA &= ~(en_rgb_led[rgb_led]);
+#endif
 }
 
 // workaround for avr-libc _delay_ms requiring a compile time constant
